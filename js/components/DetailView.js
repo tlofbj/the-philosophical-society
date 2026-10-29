@@ -4,6 +4,17 @@ import { clamp, lerp, r3 } from '../core/math.js';
 import { el, esc, pad2, reducedMotion } from '../core/dom.js';
 import { PosterFactory } from '../posters/PosterFactory.js';
 
+const LINKABLE = /(https?:\/\/[^\s)]+?)([.,!?]*(?:\s|\)|$))|([\w.]+@[\w-]+(?:\.[\w-]+)+)/g;
+
+/** A bulletin's text as HTML: the club-name lead-in set apart, links and emails made clickable. */
+function bulletinHTML(text) {
+  const [, lead = '', body = text] = text.match(/^([A-Z‘'’ ]+:)\s*(.*)$/s) ?? [];
+  const linked = esc(body).replace(LINKABLE, (m, url, tail, email) => (email
+    ? `<a href="mailto:${email}">${email}</a>`
+    : `<a href="${url}" target="_blank" rel="noopener">${url.replace(/^https?:\/\//, '')}</a>${tail}`));
+  return `${lead ? `<b>${esc(lead)}</b> ` : ''}${linked}`;
+}
+
 const OPEN_SPRING = { stiffness: 120, damping: 17 };
 const CLOSE_SPRING = { stiffness: 150, damping: 23 };
 
@@ -239,6 +250,25 @@ export class DetailView extends Emitter {
         <ol>${s.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ol>
       </section>`).join('');
 
+    const bulletins = ev.bulletins.length ? `
+      <section ${reveal('info__section')}>
+        <h3>From the bulletin</h3>
+        <div class="bulletins">${ev.bulletins.map((b) => `
+          <figure class="bulletin">
+            <figcaption><span>ʻIolani Bulletin</span>${b.note ? `<span>${esc(b.note)}</span>` : ''}</figcaption>
+            <p>${bulletinHTML(b.text)}</p>
+          </figure>`).join('')}
+        </div>
+      </section>` : '';
+
+    const figures = ev.figures ? `
+      <section ${reveal('info__section')}>
+        <h3>${esc(ev.figures.heading)}</h3>
+        <ul class="info__figures">${ev.figures.items.map(([value, label]) => `
+          <li><b>${esc(value)}</b><span>${esc(label)}</span></li>`).join('')}
+        </ul>
+      </section>` : '';
+
     const links = ev.links.length ? `
       <section ${reveal('info__section')}>
         <h3>Readings &amp; links</h3>
@@ -255,6 +285,8 @@ export class DetailView extends Emitter {
       <dl ${reveal('info__meta')}>${meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
       ${ev.summary.map((para) => `<p ${reveal('info__summary')}>${esc(para)}</p>`).join('')}
       ${ev.quote ? `<blockquote ${reveal('info__quote')}>“${esc(ev.quote)}”</blockquote>` : ''}
+      ${figures}
+      ${bulletins}
       ${sections}
       ${links}`;
 

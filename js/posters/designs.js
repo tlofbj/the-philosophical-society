@@ -7,27 +7,6 @@ import { esc } from '../core/dom.js';
  * Styles live in css/posters.css under the matching .pd--* class.
  */
 
-export class IdealSocietyPoster extends PosterTemplate {
-  static id = 'ideal-society';
-  get className() { return 'pd pd--ideal'; }
-
-  render() {
-    const e = this.event;
-    return `
-      <header class="pd__head"><span>ʻIolani School</span><span>Philosophic Society</span></header>
-      <p class="pd__no">${esc(e.kind)}</p>
-      <h3 class="pd__title">What makes an <em>ideal</em> society?</h3>
-      <div class="pd__grid">
-        <div><i class="g g--circle"></i>Liberalism</div>
-        <div><i class="g g--square"></i>Socialism</div>
-        <div><i class="g g--tri"></i>Meritocracy</div>
-        <div><i class="g g--x"></i>Anarchy</div>
-      </div>
-      <p class="pd__veil">Choose from behind the veil of ignorance.</p>
-      <footer class="pd__foot"><span>${esc(e.shortDate)}</span><span>Lunch · W310</span></footer>`;
-  }
-}
-
 export class JustWarPoster extends PosterTemplate {
   static id = 'just-war';
   get className() { return 'pd pd--war'; }
@@ -80,6 +59,91 @@ export class PizzaPoster extends PosterTemplate {
   }
 }
 
+export class KnowledgePoster extends PosterTemplate {
+  static id = 'knowledge';
+  get className() { return 'pd pd--knowledge'; }
+
+  render() {
+    const e = this.event;
+    // Hover mirrors the existential quantifier ∃ into the E of Existence.
+    return `
+      <header class="pd__head"><span>${esc(e.kind)}</span><span>${esc(e.season)}</span></header>
+      <div class="pd__glyphs" aria-hidden="true"><span class="pd__k">K</span><span class="pd__e">∃</span></div>
+      <h3 class="pd__title">Knowledge <em>&amp;</em><br>Existence</h3>
+      <footer class="pd__foot"><span>${esc(e.shortDate)}</span><span>${esc(e.poster.where)}</span></footer>`;
+  }
+}
+
+export class WrongdoingsPoster extends PosterTemplate {
+  static id = 'wrongdoings';
+  get className() { return 'pd pd--wrong'; }
+
+  render() {
+    const e = this.event;
+    const [m, d, y] = [e.when.getMonth() + 1, e.when.getDate(), e.when.getFullYear()];
+    return `
+      <p class="pd__marks" aria-hidden="true">? ? ?</p>
+      <h3 class="pd__title">${esc(e.question)}</h3>
+      <p class="pd__rule"><i></i><span>${m}/${d}/${y}</span><i></i></p>
+      <p class="pd__sig">Philosophic Society</p>`;
+  }
+}
+
+export class FreeWillPoster extends PosterTemplate {
+  static id = 'free-will';
+  get className() { return `pd pd--will pd--will-${this.event.poster.part}`; }
+
+  render() {
+    const e = this.event;
+    const part = e.poster.part === 2 ? 'II' : 'I';
+    // Marionette strings, each hung at its own length; they sway on hover.
+    const strings = [38, 62, 30, 54, 44]
+      .map((h, i) => `<i style="--h:${h}cqw;--i:${i}"></i>`)
+      .join('');
+    return `
+      <header class="pd__head"><span>${esc(e.kind)}</span><span>Part ${part}</span></header>
+      <div class="pd__strings" aria-hidden="true">${strings}</div>
+      <h3 class="pd__title">Free <em>Will</em></h3>
+      <p class="pd__q">${esc(e.question)}</p>
+      <footer class="pd__foot"><span>${esc(e.shortDate)}</span><span>${esc(e.poster.where)}</span></footer>`;
+  }
+}
+
+export class RightsPoster extends PosterTemplate {
+  static id = 'rights';
+  get className() { return 'pd pd--rights'; }
+
+  render() {
+    const e = this.event;
+    return `
+      <header class="pd__head"><span>${esc(e.kind)}</span><span>${esc(e.season)}</span></header>
+      <h3 class="pd__title">Born <em>with</em> rights?</h3>
+      <div class="pd__seal" aria-hidden="true"><span>UDHR</span><small>1948</small></div>
+      <blockquote class="pd__article"><b>Article 1.</b> All human beings are born free and equal in dignity and rights.</blockquote>
+      <footer class="pd__foot"><span>${esc(e.shortDate)}</span><span>${esc(e.poster.where)}</span></footer>`;
+  }
+}
+
+export class PrivilegePoster extends PosterTemplate {
+  static id = 'privilege';
+  get className() { return 'pd pd--privilege'; }
+
+  render() {
+    const e = this.event;
+    // "Where should we draw the lines?" The lines draw themselves on hover.
+    return `
+      <header class="pd__head"><span>${esc(e.kind)}</span><span>${esc(e.poster.where)}</span></header>
+      <h3 class="pd__title">If we are more <em>privileged</em>, are we obligated to help others?</h3>
+      <ul class="pd__words">
+        <li>Generosity</li>
+        <li>Responsibility</li>
+        <li>Obligation</li>
+      </ul>
+      <p class="pd__ask">Where should we draw the lines?</p>
+      <footer class="pd__foot"><span>${esc(e.shortDate)}</span><span>With Dr. Stephens</span></footer>`;
+  }
+}
+
 export class UpcomingPoster extends PosterTemplate {
   static id = 'upcoming';
   static #uid = 0;
@@ -92,10 +156,10 @@ export class UpcomingPoster extends PosterTemplate {
     return `
       <svg class="pd__ring" viewBox="0 0 200 200" aria-hidden="true">
         <defs><path id="${id}" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
-        <text><textPath href="#${id}" textLength="496" lengthAdjust="spacing">Next assembly · Topic to be chosen ·</textPath></text>
+        <text><textPath href="#${id}" textLength="496" lengthAdjust="spacing">Next seminar · New topic every month ·</textPath></text>
       </svg>
       <span class="pd__q" aria-hidden="true">?</span>
       <p class="pd__line">The next question<br><em>is yet to be asked.</em></p>
-      <footer class="pd__foot"><span>Date TBA</span><span>Open to all</span></footer>`;
+      <footer class="pd__foot"><span>Monthly · W313</span><span>Open to all</span></footer>`;
   }
 }

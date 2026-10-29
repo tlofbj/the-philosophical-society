@@ -24,6 +24,10 @@
   -webkit-user-drag: none;
 }
 
+.pd--contain img {
+  object-fit: contain;
+}
+
 .pd {
   display: flex;
   flex-direction: column;
@@ -46,83 +50,6 @@
   line-height: 1;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-}
-
-/* — Second Assembly: What makes an ideal society? — */
-.pd--ideal {
-  background: #1e2b5a;
-  color: #f2ead8;
-}
-
-.pd--ideal .pd__head {
-  padding-bottom: 3cqw;
-  border-bottom: 0.3cqw solid rgba(242, 234, 216, 0.35);
-  opacity: 0.8;
-}
-
-.pd--ideal .pd__no {
-  margin-top: 7cqw;
-  font: italic 6cqw/1 var(--serif);
-  color: #f0b64a;
-}
-
-.pd--ideal .pd__title {
-  margin-top: 2cqw;
-  font: 400 14.5cqw/0.88 var(--serif);
-  letter-spacing: -0.01em;
-}
-
-.pd--ideal .pd__title em {
-  color: #f0b64a;
-}
-
-.pd--ideal .pd__grid {
-  margin-top: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.3cqw;
-  background: rgba(242, 234, 216, 0.3);
-  border: 0.3cqw solid rgba(242, 234, 216, 0.3);
-}
-
-.pd--ideal .pd__grid > div {
-  display: flex;
-  align-items: center;
-  gap: 2.6cqw;
-  padding: 3.4cqw 3cqw;
-  background: #1e2b5a;
-  font: 500 3.3cqw/1 var(--display);
-}
-
-.pd--ideal .g {
-  flex: none;
-  width: 4.4cqw;
-  height: 4.4cqw;
-  transition: transform 0.9s var(--ease-out);
-}
-
-.pd--ideal .g--circle { border: 0.6cqw solid currentColor; border-radius: 50%; }
-.pd--ideal .g--square { background: currentColor; }
-.pd--ideal .g--tri { background: #f0b64a; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
-.pd--ideal .g--x {
-  background:
-    linear-gradient(45deg, transparent 42%, currentColor 42% 58%, transparent 58%),
-    linear-gradient(-45deg, transparent 42%, currentColor 42% 58%, transparent 58%);
-}
-
-.card.is-hover .pd--ideal .g,
-.flyer .pd--ideal .g {
-  transform: rotate(180deg);
-}
-
-.pd--ideal .pd__veil {
-  margin-top: 5cqw;
-  font: italic 4.8cqw/1.15 var(--serif);
-}
-
-.pd--ideal .pd__foot {
-  margin-top: 4cqw;
-  opacity: 0.8;
 }
 
 /* — Third Assembly: When is it just to go to war? — */
@@ -296,6 +223,334 @@
 
 .pd--pizza .pd__foot {
   margin-top: 5cqw;
+}
+
+/* — Theme Exploration: Knowledge & Existence — */
+.pd--knowledge {
+  background: #1f3a30;
+  color: #efe8d8;
+}
+
+.pd--knowledge .pd__head {
+  padding-bottom: 3cqw;
+  border-bottom: 0.3cqw solid rgba(239, 232, 216, 0.3);
+  opacity: 0.8;
+}
+
+.pd--knowledge .pd__glyphs {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4cqw;
+  margin-top: 6cqw;
+  font: 400 50cqw/0.9 var(--serif);
+}
+
+.pd--knowledge .pd__k {
+  font-style: italic;
+  color: #d9b45a;
+}
+
+.pd--knowledge .pd__e {
+  display: inline-block;
+  transition: transform 1.1s var(--ease-out);
+}
+
+.card.is-hover .pd--knowledge .pd__e,
+.flyer .pd--knowledge .pd__e {
+  transform: scaleX(-1);
+}
+
+.pd--knowledge .pd__title {
+  margin-top: auto;
+  font: 400 13cqw/0.92 var(--serif);
+  letter-spacing: -0.01em;
+}
+
+.pd--knowledge .pd__title em {
+  color: #d9b45a;
+}
+
+.pd--knowledge .pd__foot {
+  margin-top: 6cqw;
+  opacity: 0.8;
+}
+
+/* — Historical Wrongdoings, after the meeting's own slides — */
+.pd--wrong {
+  background: #ea3b1f;
+  color: #fff;
+  text-align: center;
+}
+
+.pd--wrong .pd__marks {
+  margin-top: 4cqw;
+  font: italic 400 22cqw/1 var(--serif);
+  letter-spacing: 0.04em;
+  color: #f8dfc6;
+  transition: transform 1s var(--ease-out);
+}
+
+.card.is-hover .pd--wrong .pd__marks,
+.flyer .pd--wrong .pd__marks {
+  transform: rotate(-8deg) scale(1.15);
+}
+
+.pd--wrong .pd__title {
+  margin-top: auto;
+  font: 700 7.6cqw/1.02 var(--display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.pd--wrong .pd__rule {
+  display: flex;
+  align-items: center;
+  gap: 3cqw;
+  margin-top: 8cqw;
+  font: 600 2.9cqw/1 var(--display);
+  letter-spacing: 0.4em;
+  color: #f8dfc6;
+}
+
+.pd--wrong .pd__rule i {
+  flex: 1;
+  height: 0.35cqw;
+  background: #f8dfc6;
+  transform: scaleX(0.6);
+  transition: transform 1s var(--ease-out);
+}
+
+.pd--wrong .pd__rule i:first-child { transform-origin: 100% 50%; }
+.pd--wrong .pd__rule i:last-child { transform-origin: 0 50%; }
+
+.card.is-hover .pd--wrong .pd__rule i,
+.flyer .pd--wrong .pd__rule i {
+  transform: none;
+}
+
+.pd--wrong .pd__sig {
+  margin-top: 4cqw;
+  font: italic 400 12.5cqw/1 var(--serif);
+  color: #f8dfc6;
+}
+
+/* — Free Will, in two parts; Part II inverts the colours — */
+.pd--will {
+  --bg: #e9e3d7;
+  --fg: #171613;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.pd--will-2 {
+  --bg: #171613;
+  --fg: #e9e3d7;
+}
+
+.pd--will .pd__head {
+  position: relative;
+  z-index: 1;
+}
+
+.pd--will .pd__strings {
+  position: absolute;
+  inset: 0 18cqw auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pd--will .pd__strings i {
+  position: relative;
+  width: 0.3cqw;
+  height: var(--h);
+  background: currentColor;
+  opacity: 0.55;
+  transform-origin: 50% 0;
+  transition: transform 1.4s var(--ease-out);
+  transition-delay: calc(var(--i) * 40ms);
+}
+
+/* The cross-bar end of each string. */
+.pd--will .pd__strings i::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -1.3cqw;
+  width: 2.6cqw;
+  height: 2.6cqw;
+  margin-left: -1.3cqw;
+  border-radius: 50%;
+  background: #c4502a;
+}
+
+.card.is-hover .pd--will .pd__strings i,
+.flyer .pd--will .pd__strings i {
+  transform: rotate(calc((var(--i) - 2) * 4deg + 3deg));
+}
+
+.pd--will .pd__title {
+  margin-top: auto;
+  font: 400 25cqw/0.82 var(--serif);
+  letter-spacing: -0.02em;
+}
+
+.pd--will .pd__title em {
+  color: #c4502a;
+}
+
+.pd--will .pd__q {
+  margin-top: 4cqw;
+  max-width: 78cqw;
+  font: italic 400 5.2cqw/1.12 var(--serif);
+  opacity: 0.85;
+}
+
+.pd--will .pd__foot {
+  margin-top: 6cqw;
+  padding-top: 3cqw;
+  border-top: 0.25cqw solid currentColor;
+  opacity: 0.75;
+}
+
+/* — Human Rights — */
+.pd--rights {
+  background: #f2eee5;
+  color: #13264a;
+}
+
+.pd--rights .pd__head {
+  padding-bottom: 3cqw;
+  border-bottom: 0.3cqw solid #13264a;
+}
+
+.pd--rights .pd__title {
+  margin-top: 8cqw;
+  font: 400 18cqw/0.86 var(--serif);
+  letter-spacing: -0.015em;
+}
+
+.pd--rights .pd__title em {
+  color: #3a6fd8;
+}
+
+.pd--rights .pd__seal {
+  align-self: flex-end;
+  display: grid;
+  place-content: center;
+  width: 25cqw;
+  height: 25cqw;
+  margin-top: -2cqw;
+  border: 0.45cqw solid #3a6fd8;
+  border-radius: 50%;
+  outline: 0.25cqw solid #3a6fd8;
+  outline-offset: 1.2cqw;
+  color: #3a6fd8;
+  text-align: center;
+  transform: rotate(-12deg);
+  transition: transform 1.2s var(--ease-out);
+}
+
+.pd--rights .pd__seal span {
+  font: 700 4.6cqw/1 var(--display);
+  letter-spacing: 0.08em;
+}
+
+.pd--rights .pd__seal small {
+  margin-top: 1cqw;
+  font: italic 400 4cqw/1 var(--serif);
+}
+
+.card.is-hover .pd--rights .pd__seal,
+.flyer .pd--rights .pd__seal {
+  transform: rotate(8deg) scale(1.05);
+}
+
+.pd--rights .pd__article {
+  margin: auto 0 0;
+  padding-left: 3.5cqw;
+  border-left: 0.6cqw solid #3a6fd8;
+  font: italic 400 5.2cqw/1.15 var(--serif);
+}
+
+.pd--rights .pd__article b {
+  font: 600 2.9cqw/1 var(--display);
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5cqw;
+}
+
+.pd--rights .pd__foot {
+  margin-top: 6cqw;
+  opacity: 0.8;
+}
+
+/* — September Seminar: Privilege & Obligation — */
+.pd--privilege {
+  background: #2b2140;
+  color: #f1e8da;
+}
+
+.pd--privilege .pd__head {
+  opacity: 0.75;
+}
+
+.pd--privilege .pd__title {
+  margin-top: 8cqw;
+  font: 400 9.6cqw/0.98 var(--serif);
+}
+
+.pd--privilege .pd__title em {
+  color: #e8b85a;
+}
+
+.pd--privilege .pd__words {
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+  font: 500 4.4cqw/1 var(--display);
+  letter-spacing: -0.01em;
+}
+
+.pd--privilege .pd__words li {
+  position: relative;
+  padding: 2.6cqw 0;
+}
+
+/* The lines between the three words, drawn in on hover. */
+.pd--privilege .pd__words li + li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 0.35cqw;
+  background: #e8b85a;
+  transform: scaleX(0.12);
+  transform-origin: 0 50%;
+  transition: transform 1.1s var(--ease-out);
+}
+
+.pd--privilege .pd__words li:last-child::before {
+  transition-delay: 0.12s;
+}
+
+.card.is-hover .pd--privilege .pd__words li::before,
+.flyer .pd--privilege .pd__words li::before {
+  transform: none;
+}
+
+.pd--privilege .pd__ask {
+  margin-top: 3cqw;
+  font: italic 400 5.4cqw/1.1 var(--serif);
+  color: #e8b85a;
+}
+
+.pd--privilege .pd__foot {
+  margin-top: 6cqw;
+  opacity: 0.75;
 }
 
 /* — Upcoming — */

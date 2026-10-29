@@ -14,12 +14,17 @@ counts as upcoming and goes at the end.
 
 For the poster, either:
 
-- drop an image in `assets/posters/` and set `poster: { image: 'assets/posters/name.jpg', alt: '…' }`, or
-- use a built-in design: `poster: { template: 'ideal-society' | 'just-war' | 'ignorance' | 'pizza' | 'upcoming' }`.
+- drop an image in `assets/posters/` and set `poster: { image: 'assets/posters/name.jpg', alt: '…' }`
+  (add `fit: 'contain', bg: '#hex'` for art that isn't 3:4, like the square Club Day poster), or
+- use a built-in design: `poster: { template: 'just-war' | 'ignorance' | 'pizza' | 'knowledge' | 'wrongdoings' | 'free-will' | 'rights' | 'privilege' | 'upcoming' }`.
 
-The four poster images in `assets/posters/` were cut out of a mockup
-screenshot, so they're low resolution. Replace them with the original files
-under the same names (3:4 portrait works best).
+Other optional fields:
+
+- `bulletins`: the announcements as they ran in the ʻIolani bulletin, shown as clippings in the detail view. Links and emails become clickable.
+- `figures`: big numbers for the detail view (used for attendance stats on the upcoming card).
+- `links`: readings and handouts. Handouts live in `assets/docs/`.
+
+The rail marks where each school year (2024–25, 2025–26, …) begins.
 
 ## Structure
 

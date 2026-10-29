@@ -16,9 +16,12 @@ export class SocietyEvent {
     this.quote = raw.quote ?? null;
     this.sections = raw.sections ?? [];
     this.links = raw.links ?? [];
+    this.bulletins = raw.bulletins ?? [];
+    this.figures = raw.figures ?? null;
     this.poster = raw.poster ?? {};
     this.tilt = raw.tilt ?? 0;
     this.index = 0;
+    this.opensSeason = false;
     // Noon avoids the date slipping a day in far-off timezones.
     this.when = this.date ? new Date(`${this.date}T12:00:00`) : null;
   }
@@ -48,6 +51,14 @@ export class SocietyEvent {
   get shortDate() {
     if (!this.when) return 'Date TBA';
     return this.when.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+
+  /** School year, "2024–25". A new one starts in August. */
+  get season() {
+    if (!this.when) return null;
+    const y = this.when.getFullYear();
+    const start = this.when.getMonth() >= 7 ? y : y - 1;
+    return `${start}–${String(start + 1).slice(2)}`;
   }
 
   /** "22 Jan 2025" — the label on the timeline rail. */

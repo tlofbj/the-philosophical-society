@@ -14,7 +14,10 @@ import { DetailView } from './components/DetailView.js';
 export class App {
   constructor(doc = document) {
     this.events = EVENTS.map((raw) => new SocietyEvent(raw)).sort(SocietyEvent.compare);
-    this.events.forEach((event, i) => { event.index = i; });
+    this.events.forEach((event, i) => {
+      event.index = i;
+      event.opensSeason = Boolean(event.season) && event.season !== this.events[i - 1]?.season;
+    });
 
     this.ticker = new Ticker();
     this.pointer = new Pointer();

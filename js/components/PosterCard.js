@@ -26,7 +26,8 @@ export class PosterCard {
     this.body.append(PosterFactory.create(event), this.glare);
     this.el.append(this.shadow, this.body);
 
-    this.stamp = el('div', 'stamp', `<i class="stamp__dot"></i><span class="stamp__date">${esc(event.stamp)}</span>`);
+    const season = event.opensSeason ? `<span class="stamp__season">${esc(event.season)}</span>` : '';
+    this.stamp = el('div', 'stamp', `<i class="stamp__dot"></i><span class="stamp__date">${esc(event.stamp)}</span>${season}`);
     this.stamp.setAttribute('aria-hidden', 'true');
 
     this.lift = new Spring(0, { stiffness: 210, damping: 20 });
