@@ -494,8 +494,8 @@ export const EVENTS = [
     figures: {
       heading: 'The first two years',
       items: [
-        ['45+', 'unique attendees'],
-        ['12', 'meetings'],
+        ['82', 'registered members'],
+        ['11', 'topics'],
         ['17', 'attendees per meeting, on average'],
         ['35+', 'came back at least once'],
         ['5', 'teachers in attendance'],
@@ -503,7 +503,7 @@ export const EVENTS = [
     },
     links: [
       { label: 'Follow @philosophic.society on Instagram', href: 'https://www.instagram.com/philosophic.society/' },
-      { label: 'Write to the Secretariat', href: 'mailto:TL2701@iolani.org' },
+      { label: 'Write to Tata', href: 'mailto:TL2701@iolani.org' },
     ],
     poster: { template: 'upcoming' },
     tilt: 2,
