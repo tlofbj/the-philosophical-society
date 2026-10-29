@@ -95,12 +95,24 @@
   gap: 22px;
 }
 
-.corner a {
+.corner a,
+.corner__btn {
   position: relative;
   text-decoration: none;
 }
 
-.corner a span {
+.corner__btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.corner a span,
+.corner__btn span {
   display: inline-block;
   margin-left: 2px;
   transition: transform 0.4s var(--ease-out);
@@ -110,7 +122,20 @@
   transform: translate(2px, -2px);
 }
 
-.corner a::after {
+.corner__btn span {
+  margin-left: 4px;
+}
+
+.corner__btn:hover span {
+  transform: rotate(90deg);
+}
+
+.masthead:has(.statement:popover-open) .corner__btn span {
+  transform: rotate(45deg);
+}
+
+.corner a::after,
+.corner__btn::after {
   content: '';
   position: absolute;
   left: 0;
@@ -123,9 +148,65 @@
   transition: transform 0.5s var(--ease-out);
 }
 
-.corner a:hover::after {
+.corner a:hover::after,
+.corner__btn:hover::after,
+.masthead:has(.statement:popover-open) .corner__btn::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+/* The AI statement drops down under the corner links. */
+.statement {
+  position: fixed;
+  inset: calc(clamp(16px, 2.6vh, 28px) + 30px) var(--gutter) auto auto;
+  width: min(360px, calc(100vw - 2 * var(--gutter)));
+  margin: 0;
+  padding: 20px 22px 22px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 30px 60px -30px rgba(36, 24, 8, 0.45), 0 12px 24px -16px rgba(36, 24, 8, 0.2);
+  opacity: 0;
+  transform: translate3d(0, -10px, 0) scale(0.98);
+  transform-origin: 100% 0;
+  transition:
+    opacity 0.3s,
+    transform 0.6s var(--ease-out),
+    overlay 0.6s allow-discrete,
+    display 0.6s allow-discrete;
+}
+
+.statement:popover-open {
+  opacity: 1;
+  transform: none;
+}
+
+@starting-style {
+  .statement:popover-open {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0) scale(0.98);
+  }
+}
+
+.statement::backdrop {
+  background: transparent;
+}
+
+.statement__kicker {
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line-strong);
+  font: 600 11px/1 var(--display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.statement__body {
+  margin: 14px 0 0;
+  font: 400 21px/1.28 var(--serif);
+  text-align: left;
 }
 
 @media (max-width: 640px) {
@@ -135,5 +216,21 @@
 
   .corner {
     font-size: 11px;
+  }
+
+  .corner--right {
+    gap: 16px;
+  }
+}
+
+/* Too narrow for both corners: keep the links, centred. */
+@media (max-width: 480px) {
+  .corner--left {
+    display: none;
+  }
+
+  .corner--right {
+    left: var(--gutter);
+    justify-content: center;
   }
 }

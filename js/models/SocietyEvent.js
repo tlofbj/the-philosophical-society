@@ -14,6 +14,8 @@ export class SocietyEvent {
     this.attendance = raw.attendance ?? null;
     this.summary = raw.summary ?? [];
     this.quote = raw.quote ?? null;
+    this.quoteBy = raw.quoteBy ?? null;
+    this.media = raw.media ?? [];
     this.sections = raw.sections ?? [];
     this.links = raw.links ?? [];
     this.bulletins = raw.bulletins ?? [];

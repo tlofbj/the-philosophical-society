@@ -261,6 +261,12 @@ export class DetailView extends Emitter {
         </div>
       </section>` : '';
 
+    const media = ev.media.map((m) => `
+      <figure ${reveal('info__media')}>
+        <a href="${esc(m.image)}" target="_blank" rel="noopener" data-cursor="view"><img src="${esc(m.image)}" alt="${esc(m.alt)}" loading="lazy" decoding="async"></a>
+        ${m.caption ? `<figcaption>${esc(m.caption)}</figcaption>` : ''}
+      </figure>`).join('');
+
     const figures = ev.figures ? `
       <section ${reveal('info__section')}>
         <h3>${esc(ev.figures.heading)}</h3>
@@ -284,7 +290,8 @@ export class DetailView extends Emitter {
       ${ev.question ? `<p ${reveal('info__question')}>${esc(ev.question)}</p>` : ''}
       <dl ${reveal('info__meta')}>${meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
       ${ev.summary.map((para) => `<p ${reveal('info__summary')}>${esc(para)}</p>`).join('')}
-      ${ev.quote ? `<blockquote ${reveal('info__quote')}>“${esc(ev.quote)}”</blockquote>` : ''}
+      ${ev.quote ? `<blockquote ${reveal('info__quote')}>“${esc(ev.quote)}”${ev.quoteBy ? `<cite>${esc(ev.quoteBy)}</cite>` : ''}</blockquote>` : ''}
+      ${media}
       ${figures}
       ${bulletins}
       ${sections}

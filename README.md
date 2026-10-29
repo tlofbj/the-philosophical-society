@@ -23,6 +23,8 @@ Other optional fields:
 - `bulletins`: the announcements as they ran in the ʻIolani bulletin, shown as clippings in the detail view. Links and emails become clickable.
 - `figures`: big numbers for the detail view (used for attendance stats on the upcoming card).
 - `links`: readings and handouts. Handouts live in `assets/docs/`.
+- `media`: slides or diagrams from the meeting, as `{ image, alt, caption }`. Images live in `assets/figures/`.
+- `quoteBy`: who said the `quote`, when it isn't the Society's own words.
 
 The rail marks where each school year (2024–25, 2025–26, …) begins.
 

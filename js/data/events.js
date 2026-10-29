@@ -10,6 +10,8 @@
  * bulletins: announcements as they ran in the ʻIolani bulletin, oldest first.
  *            An optional note labels each one (e.g. "Rescheduled").
  * figures:   big numbers shown in the detail view, as [value, label] pairs.
+ * media:     images from the meeting itself (slides, diagrams), with alt and caption.
+ * quoteBy:   who said the quote, if it isn't the Society's own.
  * tilt:      resting rotation of the card on the wall, in degrees.
  */
 
@@ -254,19 +256,15 @@ export const EVENTS = [
           'Can groups bear moral responsibility even if individual members are innocent?',
         ],
       },
-      {
-        heading: 'Sources',
-        items: [
-          'Human Rights Watch, “Q&A: Reparations for Historical and Ongoing Colonial Atrocities” (September 4, 2025)',
-          'Coleman Hughes, opening statement on slavery reparations to the U.S. House Committee on the Judiciary (June 19, 2019)',
-          'Additional case: affirmative action and SFFA v. Harvard (2023)',
-        ],
-      },
     ],
     links: [
+      { label: 'Coleman Hughes, “Statement Against Slavery Reparations”', href: 'https://www.americanrhetoric.com/speeches/slaveryreparationscolemanhughes.htm', note: 'Opening statement to the U.S. House Committee on the Judiciary, June 19, 2019' },
+      { label: 'Vox, “Affirmative action, explained”', href: 'https://www.youtube.com/watch?v=HuUDhfKV3bk', note: 'Video. The additional case: SFFA v. Harvard (2023)' },
+      { label: 'Human Rights Watch, “Q&A: Reparations for Historical and Ongoing Colonial Atrocities”', href: 'https://www.hrw.org/news/2025/09/04/qa-reparations-for-historical-and-ongoing-colonial-atrocities', note: 'September 4, 2025' },
+      { label: 'John Rawls, “An Egalitarian Theory of Justice”', href: 'https://usdglobal.wordpress.com/wp-content/uploads/2015/05/02-an-egalitarian-theory-of-justice-by-rawls.pdf', note: 'Philosophical text, PDF' },
+      { label: 'Janna Thompson, “Collective Responsibility for Historic Injustice”', href: 'https://drive.google.com/file/d/1jSMi1LAoAC7YYgxWveWAs9dtNlQQ3UUN/view?usp=sharing', note: 'Philosophical text, PDF' },
       { label: 'Pamphlet: excerpts from the Human Rights Watch Q&A', href: 'assets/docs/historical-wrongdoings-pamphlet.pdf', note: 'PDF, 2 pages' },
       { label: 'Meeting slides', href: 'assets/docs/historical-wrongdoings-slides.pdf', note: 'PDF, 8 slides' },
-      { label: 'Vox on affirmative action', href: 'https://www.youtube.com/watch?v=HuUDhfKV3bk' },
     ],
     poster: { template: 'wrongdoings' },
     tilt: 2.5,
@@ -330,7 +328,25 @@ export const EVENTS = [
     time: 'Lunch',
     place: 'Room I-203 or I-204',
     summary: [
-      'Part I ended in a nihilistic position. Part II asked what follows for society: does determinism excuse us from moral responsibility, and should we believe in free will anyway?',
+      'Part I ended in a nihilistic position. Part II asked what follows for society: does determinism excuse us from moral responsibility, and should we believe in free will anyway? Spinoza, one of the greatest philosophers and a hard determinist, was put on the stand, with compatibilism as the alternative.',
+    ],
+    quote: 'Men are deceived because they think themselves free… and the sole reason for thinking so is that they are conscious of their own actions, and ignorant of the causes by which those actions are determined.',
+    quoteBy: 'Baruch Spinoza',
+    sections: [
+      {
+        heading: 'Review',
+        items: [
+          'Libertarian free will: individuals are the ultimate source of their decisions; given the same circumstances, a person could have chosen otherwise. Defending it means showing a mechanism by which thoughts arise independent of any prior cause (“free”), and originate in nothing but the self (“will”).',
+          'Hard determinism: however vividly we feel free, we are not. Genuine free will would put us outside the physical world, which is fundamentally mechanical. Defending it rests on the assumption that every natural event is caused.',
+          'Compatibilism, or soft determinism: free will can exist in a determined world, if it means independence from external influence rather than the ability to act otherwise. Defending it means showing how any influence at all can count as internal.',
+        ],
+      },
+    ],
+    links: [
+      { label: 'Jerry Coyne (University of Chicago), “Does determinism eliminate morality?”', href: 'https://www.youtube.com/watch?v=1jCfAeD8iWE', note: 'Video, 4:14' },
+      { label: 'Sprouts, “The Milgram Experiment: Obedience to Authority”', href: 'https://www.youtube.com/watch?v=vuMt8b4UrcI', note: 'Video, 5:46' },
+      { label: 'Prindle Institute for Ethics, “Determinism and Punishment”', href: 'https://www.prindleinstitute.org/2019/08/determinism-and-punishment/', note: '4-minute read' },
+      { label: 'Melonballer Nick, “Rejection of Free Will Is Flawed and Baseless”', href: 'https://www.youtube.com/watch?v=MvVkLlwBhB0', note: 'Video, 21:35' },
     ],
     bulletins: [
       { text: 'PHILOSOPHIC SOCIETY: Two weeks ago, we confronted strong opinions against (libertarian) free will and found ourselves in a nihilistic position that questions whether our conscious mind has any influence over our actions. But does that excuse us from moral responsibility? And should we believe in free will anyways? Come back this Wednesday during lunch at I-203 or I-204 for Free Will Part 2.' },
@@ -355,6 +371,10 @@ export const EVENTS = [
     ],
     links: [
       { label: 'The Universal Declaration of Human Rights (1948)', href: 'https://www.un.org/en/about-us/universal-declaration-of-human-rights' },
+      { label: '“The Evolution of Universality in the Drafting of the UDHR”', href: 'https://digitalcommons.du.edu/cgi/viewcontent.cgi?article=1012&context=hrhw', note: '4 pages' },
+      { label: '“The Universal Declaration and the Distortion of Human Rights”', href: 'https://www.thepublicdiscourse.com/2018/12/47365/', note: 'Public Discourse, web article' },
+      { label: 'What human rights mean to an Iranian escapee', href: 'https://www.youtube.com/watch?v=NC5rjBrIgQs', note: 'Video, 4:51' },
+      { label: 'A Cambridge professor on Jeremy Bentham and natural rights', href: 'https://www.youtube.com/watch?v=ZAC24MLgzXI', note: 'Video, 4:38' },
     ],
     poster: { template: 'rights', where: 'Lunch · I-204' },
     tilt: -1,
@@ -373,6 +393,9 @@ export const EVENTS = [
     ],
     bulletins: [
       { text: 'PHILOSOPHICAL SOCIETY: Today, we kick off our new tradition to invite ʻIolani’s very own members—faculty and students—to speak at our meetings. Joining us at meeting period today, I-204, is religion teacher Mr. David Buchanan on the topic: Can moral agreement exist on the philosophical foundations of today’s morally pluralistic society? Our very own Arina Shumilova ’27 will preside at the meeting. Join us if this is something you’re into. We welcome both students and faculty members.' },
+    ],
+    sections: [
+      { heading: 'Reading', items: ['Alasdair MacIntyre, After Virtue: A Study in Moral Theory (1981)'] },
     ],
     poster: { image: 'assets/posters/after-virtue.jpg', alt: 'Poster: Is There No Ethical Common Ground in Today’s Pluralistic Society? Featuring faculty speaker Mr. David Buchanan and moderator Arina Shumilova, on After Virtue. Tuesday Mar 10, Meeting Period, I-204.' },
     tilt: -3,
@@ -393,6 +416,9 @@ export const EVENTS = [
     bulletins: [
       { note: 'First announced', text: 'PHILOSOPHICAL SOCIETY: JOIN US at lunch for our final meeting of the year on TUESDAY, MAY 19 in I-204. We’ll be having Canes and Rev. Morehouse will introduce philosophical titan Wittgenstein’s pivotal question: If the meanings of words are determined solely by societal use, can we ever speak about an objective reality, or do we only ever approximate objective reality in socially defined language games? Let’s end this year with a meaningful discussion of philosophy!' },
       { note: 'Rescheduled', text: 'PHILOSOPHICAL SOCIETY: To avoid a clash with the SAO event, we’ve rescheduled our meeting to NEXT WEDNESDAY 5/27 Meeting/Lunch in I-204. We’ll still have Canes, and Chaplain Morehouse will charge us with the question of whether language can really describe objective reality, and therefore, whether philosophical reasoning is even possible. You need no prior knowledge to come; just bring a mind of curiosity. Thank you!' },
+    ],
+    sections: [
+      { heading: 'Reading', items: ['Ludwig Wittgenstein, Philosophical Investigations (1953), where language games are introduced'] },
     ],
     poster: { image: 'assets/posters/wittgenstein.jpg', alt: 'Poster: If words only mean what we agree they mean, can language ever describe objective reality? Rev. Morehouse on Wittgenstein’s Language Games. Wednesday May 27, Meeting/Lunch at I-214. Philosophic Society Speaker Series.' },
     tilt: -1,
@@ -420,7 +446,27 @@ export const EVENTS = [
     place: 'Room W313',
     people: [['With', 'Dr. Stephens']],
     summary: [
-      'The first monthly seminar of 2026–27, with Dr. Stephens. Where should we draw the lines between generosity, responsibility and obligation? Whether you already held an opinion or were just curious to hear what people were saying, all were welcome.',
+      'The first monthly seminar of 2026–27, with Dr. Stephens. Where should we draw the lines between generosity, responsibility and obligation? And beneath that, a harder question: can we actually help those who are less fortunate? Six thinkers were set against each other, from Andrew Carnegie to Audre Lorde.',
+    ],
+    media: [
+      {
+        image: 'assets/figures/less-fortunate.png',
+        alt: 'Diagram titled “Can we actually help those who are less fortunate?” Orange lines run to Andrew Carnegie (noblesse oblige), Peter Singer (effective altruism) and Jane Addams. Green lines run to William Graham Sumner, Milton Friedman and Audre Lorde. All the lines cross at one point.',
+        caption: 'From the meeting: six answers, crossing at one question.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'On the board',
+        items: [
+          'Andrew Carnegie: noblesse oblige. In “The Gospel of Wealth” (1889), the rich hold their surplus in trust for the public good.',
+          'Peter Singer: effective altruism. If we can prevent suffering without sacrificing anything of comparable moral importance, we ought to.',
+          'Jane Addams: co-founded Hull House (1889), the Chicago settlement house where reformers lived among those they served.',
+          'William Graham Sumner: What Social Classes Owe to Each Other (1883).',
+          'Milton Friedman: the social responsibility of business is to increase its profits (1970).',
+          'Audre Lorde: “The Master’s Tools Will Never Dismantle the Master’s House” (1979).',
+        ],
+      },
     ],
     bulletins: [
       { text: 'IOLANI PHILOSOPHICAL SOCIETY: Come in this Friday 9/25 to W313 for our September seminar with Dr. Stephens: “If we are more privileged, are we obligated to help others?” Where should we draw the lines between generosity, responsibility, and obligation? If you hold an opinion or are just curious to hear what folks are saying, I encourage you to join!' },
