@@ -397,6 +397,9 @@ export const EVENTS = [
     sections: [
       { heading: 'Reading', items: ['Alasdair MacIntyre, After Virtue: A Study in Moral Theory (1981)'] },
     ],
+    links: [
+      { label: 'After Virtue, by Alasdair MacIntyre', href: 'https://www.bu.edu/cpt/resources/book-reviews/after-virtue-by-alasdair-macintyre/', note: 'Book review, Boston University Center for Practical Theology' },
+    ],
     poster: { image: 'assets/posters/after-virtue.jpg', alt: 'Poster: Is There No Ethical Common Ground in Today’s Pluralistic Society? Featuring faculty speaker Mr. David Buchanan and moderator Arina Shumilova, on After Virtue. Tuesday Mar 10, Meeting Period, I-204.' },
     tilt: -3,
   },
@@ -419,6 +422,9 @@ export const EVENTS = [
     ],
     sections: [
       { heading: 'Reading', items: ['Ludwig Wittgenstein, Philosophical Investigations (1953), where language games are introduced'] },
+    ],
+    links: [
+      { label: '“Ludwig Wittgenstein”, Stanford Encyclopedia of Philosophy', href: 'https://plato.stanford.edu/entries/wittgenstein/' },
     ],
     poster: { image: 'assets/posters/wittgenstein.jpg', alt: 'Poster: If words only mean what we agree they mean, can language ever describe objective reality? Rev. Morehouse on Wittgenstein’s Language Games. Wednesday May 27, Meeting/Lunch at I-214. Philosophic Society Speaker Series.' },
     tilt: -1,
