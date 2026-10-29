@@ -1,0 +1,361 @@
+/*
+ * Poster designs. Every size is in cqw (1% of the poster's width), so a
+ * poster looks identical as a small card and full-size in the detail view.
+ */
+
+.poster {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.poster__design {
+  position: absolute;
+  inset: 0;
+}
+
+.pd--image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.pd {
+  display: flex;
+  flex-direction: column;
+  padding: 7cqw;
+}
+
+.pd h3,
+.pd p {
+  margin: 0;
+}
+
+.pd__head,
+.pd__foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 4cqw;
+  font-family: var(--display);
+  font-size: 2.9cqw;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* — Second Assembly: What makes an ideal society? — */
+.pd--ideal {
+  background: #1e2b5a;
+  color: #f2ead8;
+}
+
+.pd--ideal .pd__head {
+  padding-bottom: 3cqw;
+  border-bottom: 0.3cqw solid rgba(242, 234, 216, 0.35);
+  opacity: 0.8;
+}
+
+.pd--ideal .pd__no {
+  margin-top: 7cqw;
+  font: italic 6cqw/1 var(--serif);
+  color: #f0b64a;
+}
+
+.pd--ideal .pd__title {
+  margin-top: 2cqw;
+  font: 400 14.5cqw/0.88 var(--serif);
+  letter-spacing: -0.01em;
+}
+
+.pd--ideal .pd__title em {
+  color: #f0b64a;
+}
+
+.pd--ideal .pd__grid {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3cqw;
+  background: rgba(242, 234, 216, 0.3);
+  border: 0.3cqw solid rgba(242, 234, 216, 0.3);
+}
+
+.pd--ideal .pd__grid > div {
+  display: flex;
+  align-items: center;
+  gap: 2.6cqw;
+  padding: 3.4cqw 3cqw;
+  background: #1e2b5a;
+  font: 500 3.3cqw/1 var(--display);
+}
+
+.pd--ideal .g {
+  flex: none;
+  width: 4.4cqw;
+  height: 4.4cqw;
+  transition: transform 0.9s var(--ease-out);
+}
+
+.pd--ideal .g--circle { border: 0.6cqw solid currentColor; border-radius: 50%; }
+.pd--ideal .g--square { background: currentColor; }
+.pd--ideal .g--tri { background: #f0b64a; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.pd--ideal .g--x {
+  background:
+    linear-gradient(45deg, transparent 42%, currentColor 42% 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, currentColor 42% 58%, transparent 58%);
+}
+
+.card.is-hover .pd--ideal .g,
+.flyer .pd--ideal .g {
+  transform: rotate(180deg);
+}
+
+.pd--ideal .pd__veil {
+  margin-top: 5cqw;
+  font: italic 4.8cqw/1.15 var(--serif);
+}
+
+.pd--ideal .pd__foot {
+  margin-top: 4cqw;
+  opacity: 0.8;
+}
+
+/* — Third Assembly: When is it just to go to war? — */
+.pd--war {
+  background: #ece4d4;
+  color: #1b1713;
+  padding-bottom: 0;
+}
+
+.pd--war .pd__head {
+  padding-bottom: 3cqw;
+  border-bottom: 0.3cqw solid #1b1713;
+}
+
+.pd--war .pd__lede {
+  margin-top: 7cqw;
+  font: 400 11.5cqw/0.95 var(--serif);
+}
+
+.pd--war .pd__lede em {
+  color: #c0321f;
+}
+
+.pd--war .pd__criteria {
+  margin: 6cqw 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: crit;
+  font: 500 3.3cqw/1.2 var(--display);
+}
+
+.pd--war .pd__criteria li {
+  counter-increment: crit;
+  display: flex;
+  gap: 2cqw;
+  padding: 1.7cqw 0;
+  border-top: 0.25cqw solid rgba(27, 23, 19, 0.22);
+}
+
+.pd--war .pd__criteria li::before {
+  content: counter(crit, lower-roman) '.';
+  width: 6cqw;
+  font: italic 3.8cqw/1 var(--serif);
+  color: #c0321f;
+}
+
+.pd--war .pd__war {
+  margin: auto -2cqw -6cqw;
+  font: 400 50cqw/0.8 var(--serif);
+  letter-spacing: -0.03em;
+  color: #c0321f;
+}
+
+.pd--war .pd__war span {
+  display: inline-block;
+  font-style: italic;
+  transform-origin: 50% 80%;
+  transition: transform 1s var(--ease-out);
+}
+
+.card.is-hover .pd--war .pd__war span,
+.flyer .pd--war .pd__war span {
+  transform: rotate(14deg) translateY(-2cqw);
+}
+
+/* — Fourth Assembly: Does ignorance justify moral failure? — */
+.pd--ignorance {
+  background: #141414;
+  color: #ece6da;
+}
+
+.pd--ignorance .pd__head {
+  justify-content: flex-start;
+  opacity: 0.65;
+}
+
+.pd--ignorance .pd__title {
+  margin-top: 10cqw;
+  font: 400 13cqw/1 var(--serif);
+}
+
+.pd__redact {
+  position: relative;
+  display: inline-block;
+  font-style: italic;
+}
+
+/* A redaction bar that peels away on hover, revealing the word. */
+.pd__redact::after {
+  content: '';
+  position: absolute;
+  left: -1.2cqw;
+  right: -1.2cqw;
+  top: 18%;
+  bottom: 4%;
+  background: #ece6da;
+  transform-origin: 100% 50%;
+  transition: transform 1s var(--ease-out);
+}
+
+.card.is-hover .pd__redact::after,
+.flyer .pd__redact::after {
+  transform: scaleX(0);
+}
+
+.pd--ignorance .pd__doc {
+  margin-top: auto;
+  display: grid;
+  gap: 2.3cqw;
+}
+
+.pd--ignorance .pd__doc i {
+  display: block;
+  width: var(--w);
+  height: 2cqw;
+  background: rgba(236, 230, 218, 0.15);
+}
+
+.pd--ignorance .pd__doc i.on {
+  background: rgba(236, 230, 218, 0.85);
+}
+
+.pd--ignorance .pd__cite {
+  margin-top: 5cqw;
+  font: italic 4cqw/1.2 var(--serif);
+  opacity: 0.8;
+}
+
+.pd--ignorance .pd__foot {
+  margin-top: 4cqw;
+  padding-top: 3cqw;
+  border-top: 0.25cqw solid rgba(236, 230, 218, 0.3);
+  opacity: 0.8;
+}
+
+/* — Fifth Assembly: end of year — */
+.pd--pizza {
+  background: #e4572e;
+  color: #fff3dc;
+}
+
+.pd--pizza .pd__pie {
+  width: 64cqw;
+  aspect-ratio: 1;
+  margin: 6cqw auto 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 34%, #a3241a 0 4.4cqw, transparent 4.6cqw),
+    radial-gradient(circle at 63% 27%, #a3241a 0 4cqw, transparent 4.2cqw),
+    radial-gradient(circle at 70% 60%, #a3241a 0 4.6cqw, transparent 4.8cqw),
+    radial-gradient(circle at 38% 70%, #a3241a 0 4.2cqw, transparent 4.4cqw),
+    radial-gradient(circle at 52% 48%, #a3241a 0 3.4cqw, transparent 3.6cqw),
+    repeating-conic-gradient(from 22.5deg, rgba(90, 30, 10, 0.35) 0 0.8deg, transparent 0.8deg 45deg),
+    radial-gradient(circle, #f8d57e 0 60%, #eaa94a 62% 70%, #d98b35 71%);
+  -webkit-mask: conic-gradient(from 112.5deg, transparent 0 45deg, #000 45deg);
+  mask: conic-gradient(from 112.5deg, transparent 0 45deg, #000 45deg);
+  filter: drop-shadow(0 1.6cqw 0 rgba(90, 20, 5, 0.25));
+  animation: spin 90s linear infinite;
+}
+
+.pd--pizza .pd__title {
+  margin-top: auto;
+  font: italic 27cqw/0.8 var(--serif);
+  letter-spacing: -0.02em;
+}
+
+.pd--pizza .pd__sub {
+  margin-top: 2.5cqw;
+  font: 400 5.6cqw/1.1 var(--serif);
+}
+
+.pd--pizza .pd__foot {
+  margin-top: 5cqw;
+}
+
+/* — Upcoming — */
+.pd--next {
+  background: #efebe3;
+  color: var(--ink);
+  text-align: center;
+}
+
+.pd--next::before {
+  content: '';
+  position: absolute;
+  inset: 4cqw;
+  border: 0.35cqw dashed rgba(17, 17, 16, 0.3);
+  border-radius: 1.2cqw;
+}
+
+.pd--next .pd__ring {
+  position: absolute;
+  left: 13cqw;
+  top: 13cqw;
+  width: 74cqw;
+  height: 74cqw;
+  overflow: visible;
+  fill: var(--ink);
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  animation: spin 40s linear infinite;
+}
+
+.pd--next .pd__q {
+  position: absolute;
+  left: 13cqw;
+  top: 13cqw;
+  width: 74cqw;
+  height: 74cqw;
+  display: grid;
+  place-items: center;
+  font: italic 44cqw/1 var(--serif);
+  transition: transform 1s var(--ease-out);
+}
+
+.card.is-hover .pd--next .pd__q {
+  transform: rotate(-12deg) scale(1.06);
+}
+
+.pd--next .pd__line {
+  margin-top: auto;
+  font: 400 7cqw/1.05 var(--serif);
+}
+
+.pd--next .pd__foot {
+  margin-top: 5cqw;
+  color: var(--ink-2);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

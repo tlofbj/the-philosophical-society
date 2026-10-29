@@ -1,0 +1,217 @@
+.hud {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 0 var(--gutter) clamp(16px, 3.4vh, 34px);
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.is-ready .hud {
+  animation: rise 1s var(--ease-out) 1s forwards;
+}
+
+.hud__hint,
+.hud__motto {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.hud__hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kbd {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+.kbd + .kbd {
+  margin-right: 6px;
+}
+
+.hud__motto {
+  justify-self: end;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ink-2);
+}
+
+.dial {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 24px);
+}
+
+.dial__btn {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.35s, color 0.35s, border-color 0.35s, transform 0.5s var(--ease-out), opacity 0.35s;
+}
+
+.dial__btn svg,
+.detail__close svg,
+.detail__nav svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dial__btn:hover:not(:disabled) {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+  transform: scale(1.08);
+}
+
+.dial__btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.dial__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.dial__face {
+  min-width: 240px;
+  text-align: center;
+}
+
+.dial__date {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-family: var(--serif);
+  font-size: clamp(28px, 2.7vw, 40px);
+  line-height: 1.1;
+}
+
+.dial__date [data-month] {
+  margin-right: 0.24em;
+}
+
+.dial__day,
+.dial__comma,
+.dial__year {
+  transition: opacity 0.5s, max-width 0.7s var(--ease-out), margin 0.7s var(--ease-out);
+  max-width: 3em;
+  overflow: hidden;
+}
+
+.dial__year {
+  margin-left: 0.24em;
+}
+
+.dial__date.is-tba .dial__day,
+.dial__date.is-tba .dial__comma,
+.dial__date.is-tba .dial__year {
+  opacity: 0;
+  max-width: 0;
+  margin: 0;
+}
+
+.dial__sub {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.dial__count {
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Rolling digits */
+.roller {
+  display: inline-flex;
+}
+
+.roller__col {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.1em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.roller__strip {
+  display: flex;
+  flex-direction: column;
+  transition: transform 1s var(--ease-out);
+  transition-delay: calc(var(--c) * 45ms);
+}
+
+.roller__strip span {
+  height: 1.1em;
+  line-height: 1.1em;
+}
+
+/* Sliding text swap */
+.swap {
+  display: inline-grid;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.swap__item {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  transition: transform 0.75s var(--ease-out), opacity 0.5s var(--ease-out);
+}
+
+.swap__item.from-below,
+.swap__item.to-below {
+  transform: translateY(105%);
+  opacity: 0;
+}
+
+.swap__item.from-above,
+.swap__item.to-above {
+  transform: translateY(-105%);
+  opacity: 0;
+}
+
+@media (max-width: 760px) {
+  .hud {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .hud__hint,
+  .hud__motto {
+    display: none;
+  }
+
+  .dial__face {
+    min-width: 180px;
+  }
+}

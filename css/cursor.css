@@ -1,0 +1,95 @@
+.has-cursor,
+.has-cursor * {
+  cursor: none !important;
+}
+
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cursor__ring,
+.cursor__dot,
+.cursor__label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+
+.cursor__ring {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  transition: background-color 0.35s, border-color 0.35s;
+}
+
+.cursor__dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--ink);
+  transition: opacity 0.25s;
+}
+
+.cursor__label {
+  display: grid;
+  place-items: center;
+  width: 0;
+  height: 0;
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--paper);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.cursor[data-state='link'] .cursor__ring {
+  background: rgba(17, 17, 16, 0.08);
+  border-color: transparent;
+}
+
+.cursor[data-state='view'] .cursor__ring,
+.cursor[data-state='close'] .cursor__ring {
+  background: var(--ink);
+}
+
+.cursor[data-state='view'] .cursor__label,
+.cursor[data-state='close'] .cursor__label {
+  opacity: 1;
+  transition-delay: 0.08s;
+}
+
+.cursor[data-state='drag'] .cursor__ring {
+  background: rgba(251, 250, 247, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.cursor[data-state='drag'] .cursor__label {
+  color: var(--ink);
+  opacity: 1;
+}
+
+.cursor[data-state='dragging'] .cursor__ring {
+  background: var(--ink);
+}
+
+.cursor[data-state='view'] .cursor__dot,
+.cursor[data-state='close'] .cursor__dot,
+.cursor[data-state='drag'] .cursor__dot,
+.cursor[data-state='dragging'] .cursor__dot,
+.cursor[data-state='link'] .cursor__dot {
+  opacity: 0;
+}

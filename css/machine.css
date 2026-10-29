@@ -1,0 +1,140 @@
+.machine {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  perspective: 1600px;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+.machine.is-dragging {
+  cursor: grabbing;
+}
+
+.machine__track {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+/* The rail: a hairline with minor ticks that scroll with the track. */
+.machine__rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--rail-y, 80%);
+  height: 9px;
+  margin-top: -4.5px;
+  background:
+    repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 22px) 0 50% / auto 9px repeat-x,
+    linear-gradient(var(--line-strong), var(--line-strong)) 0 50% / 100% 1px no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+}
+
+.card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--card-w);
+  aspect-ratio: 3 / 4;
+  opacity: 0;
+  will-change: transform, opacity;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card:focus-visible {
+  outline: none;
+}
+
+.card:focus-visible .card__body {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+}
+
+.card.is-away {
+  visibility: hidden;
+}
+
+.card__shadow {
+  position: absolute;
+  inset: 8% 6% -2%;
+  border-radius: 10px;
+  background: rgba(36, 26, 12, 0.42);
+  filter: blur(22px);
+  will-change: transform, opacity;
+}
+
+.card__body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgba(17, 17, 16, 0.07),
+    0 1px 2px rgba(17, 17, 16, 0.1);
+}
+
+.card__glare {
+  position: absolute;
+  left: -30%;
+  top: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 48%);
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Date stamps sitting on the rail under each card. */
+.stamp {
+  position: absolute;
+  left: 0;
+  top: var(--rail-y, 80%);
+  width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.stamp__dot {
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--ink-3);
+  transition: transform 0.6s var(--ease-out), background-color 0.4s, border-color 0.4s;
+}
+
+.stamp__date {
+  margin-top: 12px;
+  white-space: nowrap;
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  transition: color 0.4s, transform 0.6s var(--ease-out);
+}
+
+.stamp.is-active .stamp__dot {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: scale(1.5);
+}
+
+.stamp.is-active .stamp__date {
+  color: var(--ink);
+  transform: translateY(2px);
+}

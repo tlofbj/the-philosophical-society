@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Time Machine · The Philosophical Society @ ʻIolani School</title>
+  <meta name="description" content="Every meeting of the Philosophical Society at ʻIolani School, from the Trolley Problem to Wittgenstein. Drag through time.">
+  <meta name="theme-color" content="#fbfaf7">
+  <meta property="og:title" content="The Time Machine · The Philosophical Society">
+  <meta property="og:description" content="Every meeting of the Philosophical Society at ʻIolani School. Drag through time.">
+  <meta property="og:image" content="assets/posters/after-virtue.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111110'/%3E%3Ctext x='32' y='47' font-family='Georgia,serif' font-size='42' text-anchor='middle' fill='%23fbfaf7'%3E%CE%A8%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/masthead.css">
+  <link rel="stylesheet" href="css/machine.css">
+  <link rel="stylesheet" href="css/posters.css">
+  <link rel="stylesheet" href="css/hud.css">
+  <link rel="stylesheet" href="css/detail.css">
+  <link rel="stylesheet" href="css/cursor.css">
+
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="ambient" data-ambient aria-hidden="true"></div>
+
+  <div class="page" data-page>
+    <header class="masthead">
+      <p class="corner corner--left">Est. 2024 · Honolulu</p>
+      <nav class="corner corner--right" aria-label="Contact">
+        <a href="https://www.instagram.com/philosophic.society/" target="_blank" rel="noopener">Instagram<span aria-hidden="true">↗</span></a>
+        <a href="mailto:TL2701@iolani.org">Contact<span aria-hidden="true">↗</span></a>
+      </nav>
+      <h1 class="masthead__title" data-title>The Time Machine</h1>
+      <p class="masthead__sub"><strong>The Philosophical Society</strong> @ ʻIolani School</p>
+    </header>
+
+    <main class="machine" data-machine data-cursor="drag" aria-label="Timeline of Society meetings">
+      <div class="machine__rail" data-rail aria-hidden="true"></div>
+      <div class="machine__track" data-track></div>
+    </main>
+
+    <footer class="hud">
+      <p class="hud__hint">
+        <span class="kbd" aria-hidden="true">←</span><span class="kbd" aria-hidden="true">→</span>
+        Drag, scroll or use the arrow keys to travel through time
+      </p>
+      <div class="dial" data-dial>
+        <button class="dial__btn" type="button" data-prev aria-label="Earlier meeting">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <div class="dial__face">
+          <div class="dial__date" data-date aria-hidden="true">
+            <span data-month>Jan</span>
+            <span class="dial__day" data-day></span><span class="dial__comma">,</span>
+            <span class="dial__year" data-year></span>
+          </div>
+          <div class="dial__sub" aria-hidden="true"><span data-label>Assembly</span><span class="dial__count" data-count></span></div>
+          <span class="sr-only" aria-live="polite" data-live></span>
+        </div>
+        <button class="dial__btn" type="button" data-next aria-label="Later meeting">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <p class="hud__motto"><em>Cogito, ergo sum.</em></p>
+    </footer>
+  </div>
+
+  <div class="detail" data-detail role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden>
+    <div class="detail__backdrop"></div>
+    <div class="detail__scroller" data-scroller data-cursor="close">
+      <div class="detail__grid" data-grid>
+        <div class="detail__slot" data-slot data-cursor="default"></div>
+        <article class="detail__info" data-info data-cursor="default"></article>
+      </div>
+    </div>
+    <button class="detail__close" type="button" data-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="detail__nav" aria-label="Other meetings">
+      <button type="button" data-prev aria-label="Earlier meeting"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Earlier</button>
+      <span data-counter></span>
+      <button type="button" data-next aria-label="Later meeting">Later<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    </nav>
+  </div>
+
+  <div class="flight-layer" data-flight aria-hidden="true"></div>
+
+  <div class="cursor" data-cursor-root aria-hidden="true">
+    <div class="cursor__ring"></div>
+    <div class="cursor__label"></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <noscript>
+    <p class="noscript">The Time Machine needs JavaScript to run. Follow the Society on
+      <a href="https://www.instagram.com/philosophic.society/">Instagram</a> or write to
+      <a href="mailto:TL2701@iolani.org">TL2701@iolani.org</a>.</p>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,118 @@
+:root {
+  --paper: #fbfaf7;
+  --ink: #111110;
+  --ink-2: #4f4b45;
+  --ink-3: #8d887f;
+  --line: rgba(17, 17, 16, 0.14);
+  --line-strong: rgba(17, 17, 16, 0.28);
+
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Poster width: fits four across on desktop, shrinks on short screens. */
+  --card-w: max(150px, min(19vw, 330px, calc((100svh - 390px) * 0.64)));
+  --gutter: clamp(16px, 3vw, 40px);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --card-w: max(150px, min(64vw, 300px, calc((100svh - 330px) * 0.62)));
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  height: 100svh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+/* A warm light that drifts after the cursor. */
+.ambient {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 70vmax;
+  height: 70vmax;
+  margin: -35vmax 0 0 -35vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 205, 150, 0.32), rgba(255, 205, 150, 0) 62%);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.noscript {
+  position: fixed;
+  inset: auto 16px 16px;
+  z-index: 10;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
