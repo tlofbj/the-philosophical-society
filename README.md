@@ -15,8 +15,8 @@ counts as upcoming and goes at the end.
 For the poster, either:
 
 - drop an image in `assets/posters/` and set `poster: { image: 'assets/posters/name.jpg', alt: '…' }`
-  (add `fit: 'contain', bg: '#hex'` for art that isn't 3:4, like the square Club Day poster), or
-- use a built-in design: `poster: { template: 'just-war' | 'ignorance' | 'pizza' | 'knowledge' | 'wrongdoings' | 'free-will' | 'rights' | 'privilege' | 'upcoming' }`.
+  (add `ratio: 1` for a square poster like Club Day; the card and detail view take that shape), or
+- use a built-in design: `poster: { template: 'just-war' | 'ignorance' | 'pizza' | 'knowledge' | 'wrongdoings' | 'free-will' | 'rights' | 'upcoming' }`.
 
 Other optional fields:
 

@@ -26,15 +26,9 @@ export class PosterTemplate {
   }
 }
 
-/** A real poster image from assets/posters. fit: 'contain' letterboxes art that isn't 3:4 on bg. */
+/** A real poster image from assets/posters. */
 export class ImagePoster extends PosterTemplate {
-  get className() { return this.event.poster.fit === 'contain' ? 'pd--image pd--contain' : 'pd--image'; }
-
-  mount() {
-    const node = super.mount();
-    if (this.event.poster.bg) node.firstChild.style.background = this.event.poster.bg;
-    return node;
-  }
+  get className() { return 'pd--image'; }
 
   render() {
     const { image, alt } = this.event.poster;

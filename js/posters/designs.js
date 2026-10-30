@@ -124,26 +124,6 @@ export class RightsPoster extends PosterTemplate {
   }
 }
 
-export class PrivilegePoster extends PosterTemplate {
-  static id = 'privilege';
-  get className() { return 'pd pd--privilege'; }
-
-  render() {
-    const e = this.event;
-    // "Where should we draw the lines?" The lines draw themselves on hover.
-    return `
-      <header class="pd__head"><span>${esc(e.kind)}</span><span>${esc(e.poster.where)}</span></header>
-      <h3 class="pd__title">If we are more <em>privileged</em>, are we obligated to help others?</h3>
-      <ul class="pd__words">
-        <li>Generosity</li>
-        <li>Responsibility</li>
-        <li>Obligation</li>
-      </ul>
-      <p class="pd__ask">Where should we draw the lines?</p>
-      <footer class="pd__foot"><span>${esc(e.shortDate)}</span><span>With Dr. Stephens</span></footer>`;
-  }
-}
-
 export class UpcomingPoster extends PosterTemplate {
   static id = 'upcoming';
   static #uid = 0;

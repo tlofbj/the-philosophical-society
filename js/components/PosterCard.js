@@ -19,6 +19,7 @@ export class PosterCard {
     this.el.setAttribute('role', 'button');
     this.el.setAttribute('aria-label', `${event.kind}: ${event.title}. ${event.longDate}`);
     this.el.dataset.cursor = 'view';
+    if (event.ratio !== 3 / 4) this.el.style.aspectRatio = String(event.ratio);
 
     this.shadow = el('div', 'card__shadow');
     this.body = el('div', 'card__body');
@@ -40,15 +41,18 @@ export class PosterCard {
     this.hovered = false;
     this.w = 0;
     this.h = 0;
+    this.dy = 0;
     Object.assign(this, { x: 0, y: 0, z: 0, rotX: 0, rotY: 0, rotZ: event.tilt, scale: 1 });
 
     this.el.addEventListener('pointerenter', (e) => e.pointerType === 'mouse' && this.setHover(true));
     this.el.addEventListener('pointerleave', () => this.setHover(false));
   }
 
+  /** w × h is the standard 3:4 slot; a card of another shape keeps the width and sits on the slot's bottom edge. */
   layout(w, h) {
     this.w = w;
-    this.h = h;
+    this.h = w / this.event.ratio;
+    this.dy = (h - this.h) / 2;
   }
 
   setHover(on) {
@@ -97,7 +101,7 @@ export class PosterCard {
     const speed = reduced ? 0 : clamp(velocity / 2600, -1, 1);
 
     this.x = cx + p.nx * depth * 18 + lx * 8 * lift;
-    this.y = cy + p.ny * depth * 12 + ly * 8 * lift - lift * 12 + (1 - enter) * innerHeight * 0.7;
+    this.y = cy + this.dy + p.ny * depth * 12 + ly * 8 * lift - lift * 12 + (1 - enter) * innerHeight * 0.7;
     this.z = reduced ? 0 : -Math.abs(offset) * 170 + lift * 70;
     this.rotX = this.tiltX.value;
     this.rotY = (reduced ? 0 : -offset * 20) + this.tiltY.value - speed * 26;

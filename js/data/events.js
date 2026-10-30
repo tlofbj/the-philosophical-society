@@ -4,7 +4,7 @@
  * as "upcoming" and placed at the end.
  *
  * poster:    either { image: 'assets/posters/<file>', alt } for a real poster
- *            (add fit: 'contain' and bg for art that isn't 3:4), or
+ *            (add ratio: width / height for art that isn't 3:4, e.g. 1), or
  *            { template: '<design id>' } for one of the built-in designs in
  *            js/posters/designs.js.
  * bulletins: announcements as they ran in the ʻIolani bulletin, oldest first.
@@ -34,7 +34,7 @@ export const EVENTS = [
     date: '2025-01-22',
     time: 'Meeting Period, 10:50–11:40',
     place: 'Room W310, Dr. Stephens’ classroom',
-    people: [['President', 'Tata Li'], ['Vice President', 'Sophia Duan'], ['Secretary', 'Qingqing Chen']],
+    people: [['President', 'Tata Li ’27'], ['Vice President', 'Sophia Duan ’27'], ['Secretary', 'Qingqing Chen']],
     attendance: 19,
     summary: [
       'The Society’s first meeting. With the House not yet convened, the Secretariat chose moral philosophy as the way in: a live simulation of the Trolley Problem, a presentation on utilitarianism and deontology, and an extended debate on how far a government may reach into private life to stop terrorism.',
@@ -79,7 +79,7 @@ export const EVENTS = [
     date: '2025-03-07',
     time: 'Meeting/Lunch, 12:05–12:55',
     place: 'Room W310',
-    people: [['President', 'Tata Li'], ['Vice President & Secretary', 'Sophia Duan']],
+    people: [['President', 'Tata Li ’27'], ['Vice President & Secretary', 'Sophia Duan ’27']],
     attendance: 17,
     summary: [
       'Four groups, four lenses: liberalism, socialism, meritocracy and anarchy. After an introduction to the veil of ignorance, each group drafted a resolution describing the ideal society from its assigned perspective, then defended it on the open floor.',
@@ -109,7 +109,7 @@ export const EVENTS = [
     date: '2025-04-16',
     time: 'Lunch, 12:20–12:55',
     place: 'Room W310',
-    people: [['President', 'Tata Li'], ['Vice President & Secretary', 'Sophia Duan']],
+    people: [['President', 'Tata Li ’27'], ['Vice President & Secretary', 'Sophia Duan ’27']],
     attendance: 17,
     summary: [
       'An introduction to just war theory (jus ad bellum) through Michael Walzer and a run of historical cases, followed by an open debate in which the Assembly voted on the necessary conditions for a just war. The Society also launched its website and opened submissions to its journal, The Philosophe.',
@@ -156,7 +156,7 @@ export const EVENTS = [
     date: '2025-05-16',
     time: 'Lunch, 12:20–12:55',
     place: 'Room W310',
-    people: [['President', 'Tata Li'], ['Vice President', 'Sophia Duan']],
+    people: [['President', 'Tata Li ’27'], ['Vice President', 'Sophia Duan ’27']],
     summary: [
       'If you did not know you were doing wrong, are you to blame? The Assembly took up the epistemic condition for moral responsibility, anchored by Gideon Rosen’s Parity Thesis: someone who acts from ignorance is culpable only if they are culpable for the ignorance itself, and that holds for moral ignorance too.',
     ],
@@ -188,7 +188,7 @@ export const EVENTS = [
     date: '2025-05-28',
     time: 'Meeting/Lunch, 11:30–12:30',
     place: 'Room W310',
-    people: [['President', 'Tata Li'], ['Vice President', 'Sophia Duan']],
+    people: [['President', 'Tata Li ’27'], ['Vice President', 'Sophia Duan ’27']],
     attendance: 18,
     summary: [
       'Pizza, celebration and reflections to close the Society’s first school year, then a debate on how it should govern itself: who counts as a member, whom the Standing Committee represents, who structures the meetings, and how new members join the Secretariat.',
@@ -227,6 +227,7 @@ export const EVENTS = [
     date: '2025-09-30',
     time: 'Lunch',
     place: 'Room I-204, Dr. Stephens’ new classroom',
+    people: [['President', 'Tata Li ’27']],
     summary: [
       'The first meeting of the 2025–26 school year, in a new room. The Society went over how the club runs, then dove straight into the month’s theme: Knowledge & Existence.',
     ],
@@ -242,6 +243,7 @@ export const EVENTS = [
     title: 'Historical Wrongdoings',
     question: 'Should we compensate for the historical wrongdoings of our nation or ancestors?',
     date: '2025-10-28',
+    people: [['President', 'Tata Li ’27']],
     summary: [
       'The second meeting of the year started with a brainstorm on what counts as a historical wrongdoing, from slavery and the annexation of Hawaiʻi to Nazi Germany and colonial atrocities, then worked through two sources on reparations and a case on affirmative action.',
     ],
@@ -277,7 +279,7 @@ export const EVENTS = [
     date: '2025-11-12',
     time: 'Meeting Period',
     place: 'Room I-203',
-    people: [['Readings prepared by', 'Peter Huang']],
+    people: [['President', 'Tata Li ’27'], ['Readings prepared by', 'Peter Huang']],
     summary: [
       'A read-and-discuss seminar on Industrial Society and Its Future (1995) by Ted Kaczynski. Despite its author’s condemnable violence, its diagnosis of modern society remains thought-provoking, and its themes of technology, progress and human autonomy have only grown more relevant with the rise of artificial intelligence.',
       'The Society does not endorse the ideas or actions in the text, and condemns all terrorism and political violence. The text was read only to discuss and critique it.',
@@ -310,6 +312,7 @@ export const EVENTS = [
     date: '2025-12-03',
     time: 'Meeting Period',
     place: 'Room I-203',
+    people: [['President', 'Tata Li ’27']],
     summary: [
       'What is free will? Are your decisions really shaped by you alone? And does recognizing our free will compel us to be fully responsible for our actions? The discussion ran into strong arguments against libertarian free will, and left the room questioning whether the conscious mind has any influence over what we do.',
     ],
@@ -327,6 +330,7 @@ export const EVENTS = [
     date: '2025-12-10',
     time: 'Lunch',
     place: 'Room I-203 or I-204',
+    people: [['President', 'Tata Li ’27']],
     summary: [
       'Part I ended in a nihilistic position. Part II asked what follows for society: does determinism excuse us from moral responsibility, and should we believe in free will anyway? Spinoza, one of the greatest philosophers and a hard determinist, was put on the stand, with compatibilism as the alternative.',
     ],
@@ -362,6 +366,7 @@ export const EVENTS = [
     date: '2026-01-28',
     time: 'Lunch',
     place: 'Room I-204',
+    people: [['President', 'Tata Li ’27']],
     summary: [
       'Current challenges to the post-WWII order have forced a reassessment of ideas long taken for granted, among them rights and sovereignty. With the Universal Declaration of Human Rights as the reference point, the Society debated where rights come from. Members could send in their positions beforehand through Raider Opinions.',
       'The meeting also went over the nomination rules for the Society’s inaugural council.',
@@ -387,7 +392,7 @@ export const EVENTS = [
     date: '2026-03-10',
     time: 'Meeting Period',
     place: 'Room I-204',
-    people: [['Faculty speaker', 'Mr. David Buchanan'], ['Moderator', 'Arina Shumilova ’27']],
+    people: [['President', 'Arina Shumilova ’27'], ['Faculty speaker', 'Mr. David Buchanan']],
     summary: [
       'The start of a new tradition: inviting ʻIolani’s own faculty and students to speak. Religion teacher Mr. David Buchanan introduced the argument of After Virtue, Alasdair MacIntyre’s landmark book of moral philosophy, and asked whether moral agreement can exist on the philosophical foundations of a morally pluralistic society. The discussion that followed was open to all.',
     ],
@@ -411,7 +416,7 @@ export const EVENTS = [
     date: '2026-05-27',
     time: 'Meeting/Lunch',
     place: 'Room I-214',
-    people: [['Speaker', 'Rev. Morehouse, ʻIolani Chaplain'], ['Moderator', 'Sophia Duan']],
+    people: [['President', 'Sophia Duan ’27'], ['Speaker', 'Rev. Morehouse, ʻIolani Chaplain']],
     summary: [
       'The final meeting of 2025–26. Rev. Morehouse introduced one of Ludwig Wittgenstein’s pivotal questions: if the meanings of words are set only by how society uses them, can we ever speak about objective reality, or only approximate it in socially defined language games? And if language can’t describe reality, is philosophical reasoning even possible? No prior knowledge was needed, and there was Raising Cane’s for everyone.',
       'First planned for Tuesday, May 19, the meeting moved to May 27 to avoid a clash with an SAO event.',
@@ -437,10 +442,11 @@ export const EVENTS = [
     title: 'What Is on Your Mind?',
     question: 'Bring it to the Philosophical Society.',
     date: '2026-09-02',
+    people: [['President', 'Tata Li ’27']],
     summary: [
       'The Society’s pitch for its third year. From 2026–27 it meets monthly during meeting periods in Weinberg 313, with a new topic every month and new opinions presented.',
     ],
-    poster: { image: 'assets/posters/club-day.jpg', alt: 'Club Day poster: What is on your mind? Bring it to the Philosophical Society. Monthly. W-313. New opinions presented.', fit: 'contain', bg: '#121316' },
+    poster: { image: 'assets/posters/club-day.jpg', alt: 'Club Day poster: What is on your mind? Bring it to the Philosophical Society. Monthly. W-313. New opinions presented.', ratio: 1 },
     tilt: 2,
   },
   {
@@ -450,7 +456,7 @@ export const EVENTS = [
     question: 'If we are more privileged, are we obligated to help others?',
     date: '2026-09-25',
     place: 'Room W313',
-    people: [['With', 'Dr. Stephens']],
+    people: [['President', 'Tata Li ’27'], ['With', 'Dr. Stephens']],
     summary: [
       'The first monthly seminar of 2026–27, with Dr. Stephens. Where should we draw the lines between generosity, responsibility and obligation? And beneath that, a harder question: can we actually help those who are less fortunate? Six thinkers were set against each other, from Andrew Carnegie to Audre Lorde.',
     ],
@@ -477,7 +483,7 @@ export const EVENTS = [
     bulletins: [
       { text: 'IOLANI PHILOSOPHICAL SOCIETY: Come in this Friday 9/25 to W313 for our September seminar with Dr. Stephens: “If we are more privileged, are we obligated to help others?” Where should we draw the lines between generosity, responsibility, and obligation? If you hold an opinion or are just curious to hear what folks are saying, I encourage you to join!' },
     ],
-    poster: { template: 'privilege', where: 'W313' },
+    poster: { image: 'assets/posters/privilege.jpg', alt: 'Poster: If we are more privileged, are we obliged to help the less privileged? Philosophical Society, 9/25 meeting period, Weinberg 313, with Dr. Stephens.' },
     tilt: -2.5,
   },
   {

@@ -61,12 +61,14 @@ export class TimeMachine extends Emitter {
   get max() { return (this.cards.length - 1) * this.step; }
 
   measure() {
+    // Keep heading for the card the track was travelling to, not the one it happens to be passing.
+    const keep = this.step ? this.indexAt(this.target) : Math.max(this.active, 0);
+
     this.rect = this.root.getBoundingClientRect();
     this.width = this.rect.width;
     this.height = this.rect.height;
-    const first = this.cards[0].el;
-    this.cardW = first.offsetWidth;
-    this.cardH = first.offsetHeight;
+    this.cardW = this.cards[0].el.offsetWidth;
+    this.cardH = this.cardW * 4 / 3;
     this.step = this.cardW * (this.width < 640 ? 1.16 : 1.38);
 
     const block = this.cardH + 70;
@@ -75,7 +77,6 @@ export class TimeMachine extends Emitter {
     this.root.style.setProperty('--rail-y', `${top + this.cardH + 34}px`);
     for (const card of this.cards) card.layout(this.cardW, this.cardH);
 
-    const keep = Math.max(this.active, 0);
     this.current = this.target = keep * this.step;
   }
 

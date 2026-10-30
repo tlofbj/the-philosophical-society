@@ -297,6 +297,7 @@ export class DetailView extends Emitter {
       ${sections}
       ${links}`;
 
+    this.slot.style.aspectRatio = ev.ratio === 3 / 4 ? '' : String(ev.ratio);
     this.counter.textContent = `${pad2(ev.index + 1)} / ${pad2(this.total)}`;
     this.prevBtn.disabled = ev.index === 0;
     this.nextBtn.disabled = ev.index === this.total - 1;

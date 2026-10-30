@@ -24,10 +24,6 @@
   -webkit-user-drag: none;
 }
 
-.pd--contain img {
-  object-fit: contain;
-}
-
 .pd {
   display: flex;
   flex-direction: column;
@@ -485,72 +481,6 @@
 .pd--rights .pd__foot {
   margin-top: 6cqw;
   opacity: 0.8;
-}
-
-/* — September Seminar: Privilege & Obligation — */
-.pd--privilege {
-  background: #2b2140;
-  color: #f1e8da;
-}
-
-.pd--privilege .pd__head {
-  opacity: 0.75;
-}
-
-.pd--privilege .pd__title {
-  margin-top: 8cqw;
-  font: 400 9.6cqw/0.98 var(--serif);
-}
-
-.pd--privilege .pd__title em {
-  color: #e8b85a;
-}
-
-.pd--privilege .pd__words {
-  margin: auto 0 0;
-  padding: 0;
-  list-style: none;
-  font: 500 4.4cqw/1 var(--display);
-  letter-spacing: -0.01em;
-}
-
-.pd--privilege .pd__words li {
-  position: relative;
-  padding: 2.6cqw 0;
-}
-
-/* The lines between the three words, drawn in on hover. */
-.pd--privilege .pd__words li + li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 0.35cqw;
-  background: #e8b85a;
-  transform: scaleX(0.12);
-  transform-origin: 0 50%;
-  transition: transform 1.1s var(--ease-out);
-}
-
-.pd--privilege .pd__words li:last-child::before {
-  transition-delay: 0.12s;
-}
-
-.card.is-hover .pd--privilege .pd__words li::before,
-.flyer .pd--privilege .pd__words li::before {
-  transform: none;
-}
-
-.pd--privilege .pd__ask {
-  margin-top: 3cqw;
-  font: italic 400 5.4cqw/1.1 var(--serif);
-  color: #e8b85a;
-}
-
-.pd--privilege .pd__foot {
-  margin-top: 6cqw;
-  opacity: 0.75;
 }
 
 /* — Upcoming — */
