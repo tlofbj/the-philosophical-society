@@ -42,6 +42,7 @@ js/
   posters/           PosterFactory, PosterTemplate base class, built-in designs
   components/        TimeMachine (draggable track), PosterCard, DetailView (card → detail flight),
                      TimeDial (rolling date), KineticTitle, Cursor, Roller, TextSwap
+tools/version.py     stamps a fresh version on every stylesheet and script before a deploy
 ```
 
 Every animation runs on a shared `Ticker` and is driven by springs or
@@ -65,3 +66,15 @@ Then open http://localhost:4173.
 3. Go to **Settings → Pages**, choose **Deploy from a branch**, then `main` and `/ (root)`.
 
 All paths are relative, so the site works under the `/the-philosophical-society/` subpath.
+
+### Every update
+
+GitHub Pages lets browsers cache each file for 10 minutes, so without new
+URLs a visitor can get the new page running old scripts. Before each push:
+
+```bash
+python3 tools/version.py
+```
+
+It adds a fresh `?v=` to every stylesheet and to `js/main.js`, and rewrites
+the import map in `index.html` so every other module loads at a new URL too.
