@@ -16,7 +16,7 @@ For the poster, either:
 
 - drop an image in `assets/posters/` and set `poster: { image: 'assets/posters/name.jpg', alt: '…' }`
   (add `ratio: 1` for a square poster; the card and detail view take that shape), or
-- use a built-in design: `poster: { template: 'just-war' | 'ignorance' | 'wrongdoings' | 'free-will' | 'rights' | 'upcoming' }`.
+- use a built-in design: `poster: { template: 'just-war' | 'ignorance' | 'free-will' | 'rights' | 'upcoming' }`.
 
 Other optional fields:
 

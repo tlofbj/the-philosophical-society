@@ -44,21 +44,6 @@ export class IgnorancePoster extends PosterTemplate {
   }
 }
 
-export class WrongdoingsPoster extends PosterTemplate {
-  static id = 'wrongdoings';
-  get className() { return 'pd pd--wrong'; }
-
-  render() {
-    const e = this.event;
-    const [m, d, y] = [e.when.getMonth() + 1, e.when.getDate(), e.when.getFullYear()];
-    return `
-      <p class="pd__marks" aria-hidden="true">? ? ?</p>
-      <h3 class="pd__title">${esc(e.question)}</h3>
-      <p class="pd__rule"><i></i><span>${m}/${d}/${y}</span><i></i></p>
-      <p class="pd__sig">Philosophic Society</p>`;
-  }
-}
-
 export class FreeWillPoster extends PosterTemplate {
   static id = 'free-will';
   get className() { return `pd pd--will pd--will-${this.event.poster.part}`; }

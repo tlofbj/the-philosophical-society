@@ -244,6 +244,7 @@ export const EVENTS = [
     title: 'Historical Wrongdoings',
     question: 'Should we compensate for the historical wrongdoings of our nation or ancestors?',
     date: '2025-10-28',
+    place: 'Room I-204',
     people: [['President', 'Tata Li ’27']],
     summary: [
       'The second meeting of the year started with a brainstorm on what counts as a historical wrongdoing, from slavery and the annexation of Hawaiʻi to Nazi Germany and colonial atrocities, then worked through two sources on reparations and a case on affirmative action.',
@@ -269,7 +270,7 @@ export const EVENTS = [
       { label: 'Pamphlet: excerpts from the Human Rights Watch Q&A', href: 'assets/docs/historical-wrongdoings-pamphlet.pdf', note: 'PDF, 2 pages' },
       { label: 'Meeting slides', href: 'assets/docs/historical-wrongdoings-slides.pdf', note: 'PDF, 8 slides' },
     ],
-    poster: { template: 'wrongdoings' },
+    poster: { image: 'assets/posters/historical-wrongdoings.jpg', alt: 'Poster: Should this generation compensate for ancestral wrongdoings? Rows of handcuffs on orange. October 28, 2025 at I-204, The Philosophical Society.' },
     tilt: 2.5,
   },
   {
