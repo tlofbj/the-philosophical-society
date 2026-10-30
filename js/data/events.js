@@ -444,6 +444,7 @@ export const EVENTS = [
     title: 'Privilege & Obligation',
     question: 'If we are more privileged, are we obligated to help others?',
     date: '2026-09-25',
+    time: 'Lunch',
     place: 'Room W313',
     people: [['President', 'Tata Li ’27'], ['With', 'Dr. Stephens']],
     summary: [
@@ -472,7 +473,7 @@ export const EVENTS = [
     bulletins: [
       { text: 'IOLANI PHILOSOPHICAL SOCIETY: Come in this Friday 9/25 to W313 for our September seminar with Dr. Stephens: “If we are more privileged, are we obligated to help others?” Where should we draw the lines between generosity, responsibility, and obligation? If you hold an opinion or are just curious to hear what folks are saying, I encourage you to join!' },
     ],
-    poster: { image: 'assets/posters/privilege.jpg', alt: 'Poster: If we are more privileged, are we obliged to help the less privileged? Philosophical Society, 9/25 meeting period, Weinberg 313, with Dr. Stephens.' },
+    poster: { image: 'assets/posters/privilege-justice.jpg', alt: 'Poster: What obligation to society does the privileged have? A bronze statue of Lady Justice, blindfolded, holding scales. Philosophical Society, September 25, 2026, Lunch, Weinberg 313.' },
     tilt: -2.5,
   },
   {
