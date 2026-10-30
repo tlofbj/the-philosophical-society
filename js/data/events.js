@@ -4,7 +4,7 @@
  * as "upcoming" and placed at the end.
  *
  * poster:    either { image: 'assets/posters/<file>', alt } for a real poster
- *            (add ratio: width / height for art that isn't 3:4, e.g. 1), or
+ *            (add ratio: width / height for art that isn't 3:4, e.g. 1 for a square), or
  *            { template: '<design id>' } for one of the built-in designs in
  *            js/posters/designs.js.
  * bulletins: announcements as they ran in the ʻIolani bulletin, oldest first.
@@ -224,6 +224,7 @@ export const EVENTS = [
     id: 'knowledge-existence',
     kind: 'Theme Exploration',
     title: 'Knowledge & Existence',
+    question: 'How do you know you know?',
     date: '2025-09-30',
     time: 'Lunch',
     place: 'Room I-204, Dr. Stephens’ new classroom',
@@ -234,7 +235,7 @@ export const EVENTS = [
     bulletins: [
       { text: 'PHILOSOPHIC SOCIETY: Join ʻIolani’s most open platform for philosophic discussion and debate TODAY during lunch at Dr. Stephens’ new classroom at I204! We’ll go over how we run this club and dive right into this month’s theme: “Knowledge & Existence”. Questions? Email Tata at tl2701@iolani.org.' },
     ],
-    poster: { template: 'knowledge', where: 'Lunch · I-204' },
+    poster: { image: 'assets/posters/knowledge-existence.jpg', alt: 'Poster: How do you know you know? A stylised eye under red lashes. Philosophic Society, Sep 30, 2025, Lunch.' },
     tilt: -2,
   },
   {
@@ -381,7 +382,7 @@ export const EVENTS = [
       { label: 'What human rights mean to an Iranian escapee', href: 'https://www.youtube.com/watch?v=NC5rjBrIgQs', note: 'Video, 4:51' },
       { label: 'A Cambridge professor on Jeremy Bentham and natural rights', href: 'https://www.youtube.com/watch?v=ZAC24MLgzXI', note: 'Video, 4:38' },
     ],
-    poster: { template: 'rights', where: 'Lunch · I-204' },
+    poster: { image: 'assets/posters/human-rights.jpg', alt: 'The Universal Declaration of Human Rights as printed by the United Nations: the preamble and all thirty articles under the UN emblem.' },
     tilt: -1,
   },
   {
@@ -436,19 +437,6 @@ export const EVENTS = [
   },
 
   /* ——— 2026–27 ——— */
-  {
-    id: 'club-day-2026',
-    kind: 'Club Day',
-    title: 'What Is on Your Mind?',
-    question: 'Bring it to the Philosophical Society.',
-    date: '2026-09-02',
-    people: [['President', 'Tata Li ’27']],
-    summary: [
-      'The Society’s pitch for its third year. From 2026–27 it meets monthly during meeting periods in Weinberg 313, with a new topic every month and new opinions presented.',
-    ],
-    poster: { image: 'assets/posters/club-day.jpg', alt: 'Club Day poster: What is on your mind? Bring it to the Philosophical Society. Monthly. W-313. New opinions presented.', ratio: 1 },
-    tilt: 2,
-  },
   {
     id: 'privilege',
     kind: 'September Seminar',
