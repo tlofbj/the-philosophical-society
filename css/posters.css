@@ -181,46 +181,6 @@
   opacity: 0.8;
 }
 
-/* — Fifth Assembly: end of year — */
-.pd--pizza {
-  background: #e4572e;
-  color: #fff3dc;
-}
-
-.pd--pizza .pd__pie {
-  width: 64cqw;
-  aspect-ratio: 1;
-  margin: 6cqw auto 0;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 32% 34%, #a3241a 0 4.4cqw, transparent 4.6cqw),
-    radial-gradient(circle at 63% 27%, #a3241a 0 4cqw, transparent 4.2cqw),
-    radial-gradient(circle at 70% 60%, #a3241a 0 4.6cqw, transparent 4.8cqw),
-    radial-gradient(circle at 38% 70%, #a3241a 0 4.2cqw, transparent 4.4cqw),
-    radial-gradient(circle at 52% 48%, #a3241a 0 3.4cqw, transparent 3.6cqw),
-    repeating-conic-gradient(from 22.5deg, rgba(90, 30, 10, 0.35) 0 0.8deg, transparent 0.8deg 45deg),
-    radial-gradient(circle, #f8d57e 0 60%, #eaa94a 62% 70%, #d98b35 71%);
-  -webkit-mask: conic-gradient(from 112.5deg, transparent 0 45deg, #000 45deg);
-  mask: conic-gradient(from 112.5deg, transparent 0 45deg, #000 45deg);
-  filter: drop-shadow(0 1.6cqw 0 rgba(90, 20, 5, 0.25));
-  animation: spin 90s linear infinite;
-}
-
-.pd--pizza .pd__title {
-  margin-top: auto;
-  font: italic 27cqw/0.8 var(--serif);
-  letter-spacing: -0.02em;
-}
-
-.pd--pizza .pd__sub {
-  margin-top: 2.5cqw;
-  font: 400 5.6cqw/1.1 var(--serif);
-}
-
-.pd--pizza .pd__foot {
-  margin-top: 5cqw;
-}
-
 /* — Historical Wrongdoings, after the meeting's own slides — */
 .pd--wrong {
   background: #ea3b1f;

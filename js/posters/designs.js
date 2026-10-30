@@ -44,21 +44,6 @@ export class IgnorancePoster extends PosterTemplate {
   }
 }
 
-export class PizzaPoster extends PosterTemplate {
-  static id = 'pizza';
-  get className() { return 'pd pd--pizza'; }
-
-  render() {
-    const e = this.event;
-    return `
-      <header class="pd__head"><span>${esc(e.kind)}</span><span>2024–25</span></header>
-      <div class="pd__pie" aria-hidden="true"></div>
-      <h3 class="pd__title">Fin.</h3>
-      <p class="pd__sub">Pizza, celebration <em>&amp;</em> reflections</p>
-      <footer class="pd__foot"><span>${esc(e.shortDate)}</span><span>11:30 · W310</span></footer>`;
-  }
-}
-
 export class WrongdoingsPoster extends PosterTemplate {
   static id = 'wrongdoings';
   get className() { return 'pd pd--wrong'; }

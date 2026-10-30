@@ -215,7 +215,7 @@ export const EVENTS = [
     bulletins: [
       { text: 'PHILOSOPHIC SOCIETY: As a new club dedicated to promote free thinking, we are thrilled to see our club membership INCREASE EVERY MEETING! Thank you for your support. In return, we would like to invite you all, member and first-timer, to our End of Year “Assembly of Italian Delicacy” on Wed 5/28 during Meeting/Lunch Period at W310. We will debate next year’s club policies and open Secretariat positions to application. Questions? Email Tata Li.' },
     ],
-    poster: { template: 'pizza' },
+    poster: { image: 'assets/posters/pizza-party.jpg', alt: 'Poster: End of Year Pizza Party. A figure dances with a slice and an open pizza box above a checkered strip. Philosophic Society, 5/28 at W-310.' },
     tilt: 3.5,
   },
 
