@@ -358,6 +358,115 @@
   opacity: 0.75;
 }
 
+/* — Human Rights, over the printed Declaration — */
+.pd--rights {
+  background: #f2eee5;
+  color: #13264a;
+}
+
+.pd--rights .pd__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.32;
+  filter: grayscale(1) contrast(1.1);
+  transition: transform 1.6s var(--ease-out), opacity 1s;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Fade the document most where the type sits: under the title and the article. */
+.pd--rights::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(242, 238, 229, 0.72) 0%, rgba(242, 238, 229, 0.2) 45%, rgba(242, 238, 229, 0.75) 100%);
+}
+
+.pd--rights > :not(.pd__bg) {
+  position: relative;
+  z-index: 2;
+}
+
+.card.is-hover .pd--rights .pd__bg,
+.flyer .pd--rights .pd__bg {
+  transform: scale(1.05);
+  opacity: 0.42;
+}
+
+.pd--rights .pd__head {
+  padding-bottom: 3cqw;
+  border-bottom: 0.3cqw solid #13264a;
+}
+
+.pd--rights .pd__title {
+  margin-top: 8cqw;
+  font: 400 18cqw/0.86 var(--serif);
+  letter-spacing: -0.015em;
+}
+
+.pd--rights .pd__title em {
+  color: #3a6fd8;
+}
+
+.pd--rights .pd__seal {
+  align-self: flex-end;
+  display: grid;
+  place-content: center;
+  width: 25cqw;
+  height: 25cqw;
+  margin-top: -2cqw;
+  border: 0.45cqw solid #3a6fd8;
+  border-radius: 50%;
+  outline: 0.25cqw solid #3a6fd8;
+  outline-offset: 1.2cqw;
+  background: rgba(242, 238, 229, 0.85);
+  color: #3a6fd8;
+  text-align: center;
+  transform: rotate(-12deg);
+  transition: transform 1.2s var(--ease-out);
+}
+
+.pd--rights .pd__seal span {
+  font: 700 4.6cqw/1 var(--display);
+  letter-spacing: 0.08em;
+}
+
+.pd--rights .pd__seal small {
+  margin-top: 1cqw;
+  font: italic 400 4cqw/1 var(--serif);
+}
+
+.card.is-hover .pd--rights .pd__seal,
+.flyer .pd--rights .pd__seal {
+  transform: rotate(8deg) scale(1.05);
+}
+
+.pd--rights .pd__article {
+  margin: auto 0 0;
+  padding-left: 3.5cqw;
+  border-left: 0.6cqw solid #3a6fd8;
+  font: italic 400 5.2cqw/1.15 var(--serif);
+}
+
+.pd--rights .pd__article b {
+  font: 600 2.9cqw/1 var(--display);
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5cqw;
+}
+
+.pd--rights .pd__foot {
+  margin-top: 6cqw;
+  opacity: 0.8;
+}
+
 /* — Upcoming — */
 .pd--next {
   background: #efebe3;

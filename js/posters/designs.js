@@ -94,6 +94,25 @@ export class FreeWillPoster extends PosterTemplate {
   }
 }
 
+export class RightsPoster extends PosterTemplate {
+  static id = 'rights';
+  get className() { return 'pd pd--rights'; }
+
+  render() {
+    const e = this.event;
+    // poster.background: an image laid behind the design, faded so the type stays legible.
+    const bg = e.poster.background
+      ? `<img class="pd__bg" src="${esc(e.poster.background)}" alt="" draggable="false" decoding="async">`
+      : '';
+    return `${bg}
+      <header class="pd__head"><span>${esc(e.kind)}</span><span>${esc(e.season)}</span></header>
+      <h3 class="pd__title">Born <em>with</em> rights?</h3>
+      <div class="pd__seal" aria-hidden="true"><span>UDHR</span><small>1948</small></div>
+      <blockquote class="pd__article"><b>Article 1.</b> All human beings are born free and equal in dignity and rights.</blockquote>
+      <footer class="pd__foot"><span>${esc(e.shortDate)}</span><span>${esc(e.poster.where)}</span></footer>`;
+  }
+}
+
 export class UpcomingPoster extends PosterTemplate {
   static id = 'upcoming';
   static #uid = 0;

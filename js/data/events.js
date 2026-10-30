@@ -382,7 +382,7 @@ export const EVENTS = [
       { label: 'What human rights mean to an Iranian escapee', href: 'https://www.youtube.com/watch?v=NC5rjBrIgQs', note: 'Video, 4:51' },
       { label: 'A Cambridge professor on Jeremy Bentham and natural rights', href: 'https://www.youtube.com/watch?v=ZAC24MLgzXI', note: 'Video, 4:38' },
     ],
-    poster: { image: 'assets/posters/human-rights.jpg', alt: 'The Universal Declaration of Human Rights as printed by the United Nations: the preamble and all thirty articles under the UN emblem.' },
+    poster: { template: 'rights', background: 'assets/posters/human-rights.jpg', where: 'Lunch · I-204' },
     tilt: -1,
   },
   {
