@@ -304,7 +304,7 @@ export class DetailView extends Emitter {
       </section>` : '';
 
     this.info.innerHTML = `
-      <p ${reveal('info__kicker')}><span>${pad2(ev.index + 1)}</span>${esc(ev.kind)}</p>
+      <p ${reveal('info__kicker')}>${ev.index >= 0 ? `<span>${pad2(ev.index + 1)}</span>` : ''}${esc(ev.kind)}</p>
       <h2 ${reveal('info__title')} id="detail-title">${esc(ev.title)}</h2>
       ${ev.question ? `<p ${reveal('info__question')}>${esc(ev.question)}</p>` : ''}
       <dl ${reveal('info__meta')}>${meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
@@ -318,6 +318,8 @@ export class DetailView extends Emitter {
       ${links}`;
 
     this.slot.style.aspectRatio = ev.ratio === 3 / 4 ? '' : String(ev.ratio);
+    // Cards off the timeline (the council) stand alone: no counter, no Earlier/Later.
+    this.root.classList.toggle('is-standalone', ev.index < 0);
     this.counter.textContent = `${pad2(ev.index + 1)} / ${pad2(this.total)}`;
     this.prevBtn.disabled = ev.index === 0;
     this.nextBtn.disabled = ev.index === this.total - 1;

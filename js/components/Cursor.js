@@ -8,6 +8,7 @@ const STATES = {
   dragging: { scale: 1.35, label: '' },
   view: { scale: 2.5, label: 'View' },
   close: { scale: 2.1, label: 'Close' },
+  council: { scale: 2.6, label: 'Council' },
   none: { scale: 0.6, label: '' },
 };
 

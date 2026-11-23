@@ -565,22 +565,27 @@ export const EVENTS = [
     poster: { template: 'upcoming' },
     tilt: 2,
   },
-  {
-    id: 'council-2026',
-    kind: 'The Council',
-    title: 'Council of the Year 2026',
-    label: 'Council of 2026',
-    people: [
-      ['Advisor', 'Dr. Taylor Stephens'],
-      ['President', 'Tata Li ’27'],
-      ['Vice President', 'Sophia Duan ’27'],
-      ['Members', 'Arina Shumilova ’27, Lena Kimura ’27, Natalie Chu ’29, Gina Kim ’29'],
-      ['Alumni', 'Tiger Matsushita ’26, Peter Huang ’26'],
-    ],
-    summary: [
-      'The people who run the Philosophical Society in 2026: its faculty advisor, its officers and members, and its alumni from the Class of 2026.',
-    ],
-    poster: { template: 'council', year: '2026' },
-    tilt: -1.5,
-  },
 ];
+
+/**
+ * The current council. It isn't on the timeline: clicking the masthead line
+ * "The Philosophical Society @ ʻIolani School" lifts its poster out of the words.
+ */
+export const COUNCIL = {
+  id: 'council-2026',
+  kind: 'The Council',
+  title: 'Council of the Year 2026',
+  label: 'Council of 2026',
+  people: [
+    ['Advisor', 'Dr. Taylor Stephens'],
+    ['President', 'Tata Li ’27'],
+    ['Vice President', 'Sophia Duan ’27'],
+    ['Members', 'Arina Shumilova ’27, Lena Kimura ’27, Natalie Chu ’29, Gina Kim ’29'],
+    ['Alumni', 'Tiger Matsushita ’26, Peter Huang ’26'],
+  ],
+  summary: [
+    'The people who run the Philosophical Society in 2026: its faculty advisor, its officers and members, and its alumni from the Class of 2026.',
+  ],
+  poster: { template: 'council', year: '2026' },
+  tilt: -1.5,
+};

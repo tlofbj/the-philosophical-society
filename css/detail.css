@@ -552,6 +552,10 @@
   transition: opacity 0.3s, transform 0.4s var(--ease-out);
 }
 
+.detail.is-standalone .detail__nav {
+  display: none;
+}
+
 .detail.is-open .detail__nav {
   opacity: 1;
   transform: translate(-50%, 0);

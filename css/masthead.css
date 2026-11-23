@@ -57,6 +57,66 @@
   font-weight: 700;
 }
 
+/* The masthead line opens the council: a dotted underline and a hint say so, quietly. */
+.council-link {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+
+.council-link strong {
+  text-decoration: underline dotted;
+  text-decoration-color: var(--line-strong);
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.4s;
+}
+
+.council-link:hover strong,
+.council-link:focus-visible strong,
+.council-link.is-away strong {
+  text-decoration-color: currentColor;
+}
+
+/* A small maroon seal and a line of small caps, echoing the council's poster. */
+.council-link__hint {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-top: 10px;
+  white-space: nowrap;
+  font: 600 11px/1 var(--display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7a1f24;
+  opacity: 0;
+  transform: translate(-50%, -4px);
+  pointer-events: none;
+  transition: opacity 0.4s, transform 0.6s var(--ease-out);
+}
+
+.council-link__hint::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: 1px;
+}
+
+.council-link:hover .council-link__hint,
+.council-link:focus-visible .council-link__hint {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 .is-ready .masthead__sub {
   animation: rise 1s var(--ease-out) 0.75s forwards;
 }

@@ -23,7 +23,7 @@ Other optional fields:
 - `poster.background`: for the `rights` design, an image laid faded behind it.
 - `bulletins`: the announcements as they ran in the ʻIolani bulletin, shown as clippings in the detail view. Links and emails become clickable.
 - `figures`: big numbers for the detail view (used for attendance stats on the upcoming card).
-- `label`: for a card that isn't a meeting (like the Council), shown on the rail and dial in place of a date.
+- `label`: for a card without a date, shown on the rail and dial in place of one.
 - `poll`: a members' topic vote, drawn as bars with the winner marked.
 - A section with `style: 'alpha'` letters its items (a), (b), (c), like a handout.
 - `links`: readings and handouts. Handouts live in `assets/docs/`.
@@ -31,6 +31,16 @@ Other optional fields:
 - `quoteBy`: who said the `quote`, when it isn't the Society's own words.
 
 The rail marks where each school year (2024–25, 2025–26, …) begins.
+
+### The council
+
+`COUNCIL` in the same file is the current council. It isn't on the timeline:
+clicking "The Philosophical Society @ ʻIolani School" under the title flies its
+roster poster out of the words. Edit its `people` to update both the poster
+and its page.
+
+The timeline opens on the newest dated meeting, the card just before the
+open-ended "next" card.
 
 ## Structure
 
@@ -45,7 +55,8 @@ js/
   data/events.js     the content
   posters/           PosterFactory, PosterTemplate base class, built-in designs
   components/        TimeMachine (draggable track), PosterCard, DetailView (card → detail flight),
-                     TimeDial (rolling date), KineticTitle, Cursor, Roller, TextSwap
+                     TimeDial (rolling date), KineticTitle, Cursor, Roller, TextSwap,
+                     CouncilLink (the masthead line that opens the council)
 tools/version.py     stamps a fresh version on every stylesheet and script before a deploy
 ```
 
