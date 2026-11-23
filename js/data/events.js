@@ -498,7 +498,7 @@ export const EVENTS = [
     date: '2026-11-25',
     time: 'Meeting Period',
     place: 'Room ASC-207',
-    people: [['President', 'Tata Li ’27'], ['Guest speaker', 'Mr. David Buchanan']],
+    people: [['Presidents', 'Tata Li ’27 and Arina Shumilova ’27'], ['Guest speaker', 'Mr. David Buchanan']],
     summary: [
       'A question as old as time, chosen by the members’ own vote. Mr. Buchanan’s handout sets out three arguments, all equally valid, whose conclusions cannot all be true. Everyone reads them together, then takes time to discuss which argument they find most convincing, and why.',
       'The exercise is meant to show how moral arguments are driven above all by incommensurable premises: each argument starts from premises its rivals reject, and none of them argues for its own.',
