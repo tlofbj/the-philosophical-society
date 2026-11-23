@@ -477,6 +477,18 @@ export const EVENTS = [
     tilt: -2.5,
   },
   {
+    id: 'fall-break-2026',
+    kind: 'Fall Break',
+    title: 'Fall Break',
+    question: 'It’s October. We will resume in November.',
+    date: '2026-10-15',
+    summary: [
+      'No seminar in October: the Society took the month off for fall break, with meetings set to resume in November.',
+    ],
+    poster: { image: 'assets/posters/fall-break-2026.jpg', alt: 'Poster: It’s October. Fall Break. We will resume in November. Red and pink crayon stars on crumpled white paper. Philosophical Society.' },
+    tilt: 1.5,
+  },
+  {
     id: 'next',
     kind: 'Next Seminar',
     title: 'To Be Announced',
