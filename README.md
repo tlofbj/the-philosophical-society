@@ -16,13 +16,14 @@ For the poster, either:
 
 - drop an image in `assets/posters/` and set `poster: { image: 'assets/posters/name.jpg', alt: '…' }`
   (add `ratio: 1` for a square poster; the card and detail view take that shape), or
-- use a built-in design: `poster: { template: 'just-war' | 'ignorance' | 'free-will' | 'rights' | 'upcoming' }`.
+- use a built-in design: `poster: { template: 'just-war' | 'ignorance' | 'free-will' | 'rights' | 'council' | 'upcoming' }`.
 
 Other optional fields:
 
 - `poster.background`: for the `rights` design, an image laid faded behind it.
 - `bulletins`: the announcements as they ran in the ʻIolani bulletin, shown as clippings in the detail view. Links and emails become clickable.
 - `figures`: big numbers for the detail view (used for attendance stats on the upcoming card).
+- `label`: for a card that isn't a meeting (like the Council), shown on the rail and dial in place of a date.
 - `poll`: a members' topic vote, drawn as bars with the winner marked.
 - A section with `style: 'alpha'` letters its items (a), (b), (c), like a handout.
 - `links`: readings and handouts. Handouts live in `assets/docs/`.

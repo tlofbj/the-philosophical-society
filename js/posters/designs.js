@@ -83,6 +83,33 @@ export class RightsPoster extends PosterTemplate {
   }
 }
 
+export class CouncilPoster extends PosterTemplate {
+  static id = 'council';
+  get className() { return 'pd pd--council'; }
+
+  render() {
+    const e = this.event;
+    const { year } = e.poster;
+    // The roster comes straight from event.people: [role, 'Name, Name, …'].
+    const roster = e.people.map(([role, names]) => {
+      const list = names.split(', ');
+      return `
+        <div class="${list.length > 1 ? 'is-group' : ''}">
+          <dt>${esc(role)}</dt>
+          ${list.map((name) => `<dd>${esc(name)}</dd>`).join('')}
+        </div>`;
+    }).join('');
+    return `
+      <header class="pd__head"><span>ʻIolani School</span><span>Philosophical Society</span></header>
+      <div class="pd__crest">
+        <h3 class="pd__title">The Council</h3>
+        <span class="pd__seal" aria-hidden="true">${esc(year)}</span>
+      </div>
+      <p class="pd__sub">of the Year ${esc(year)}</p>
+      <dl class="pd__roster">${roster}</dl>`;
+  }
+}
+
 export class UpcomingPoster extends PosterTemplate {
   static id = 'upcoming';
   static #uid = 0;

@@ -8,6 +8,8 @@ export class SocietyEvent {
     this.title = raw.title;
     this.question = raw.question ?? '';
     this.date = raw.date ?? null;
+    /** Stands in for the date on a card that isn't a meeting, e.g. "Council of 2026". */
+    this.label = raw.label ?? null;
     this.time = raw.time ?? '';
     this.place = raw.place ?? '';
     this.people = raw.people ?? [];
@@ -48,7 +50,7 @@ export class SocietyEvent {
 
   /** "Wednesday, January 22, 2025" */
   get longDate() {
-    if (!this.when) return 'To be announced';
+    if (!this.when) return this.label ?? 'To be announced';
     return this.when.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
   }
 
@@ -68,6 +70,6 @@ export class SocietyEvent {
 
   /** "22 Jan 2025" — the label on the timeline rail. */
   get stamp() {
-    return this.when ? `${this.day} ${this.month} ${this.year}` : 'Coming soon';
+    return this.when ? `${this.day} ${this.month} ${this.year}` : (this.label ?? 'Coming soon');
   }
 }

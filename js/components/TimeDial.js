@@ -27,7 +27,7 @@ export class TimeDial extends Emitter {
     const dir = index >= this.index ? 1 : -1;
     this.index = index;
     this.date.classList.toggle('is-tba', !event.hasDate);
-    this.month.set(event.hasDate ? event.month : 'Date to be announced', dir);
+    this.month.set(event.hasDate ? event.month : (event.label ?? 'Date to be announced'), dir);
     this.day.set(event.day ?? '––');
     this.year.set(event.year ?? '––––');
     this.label.set(event.kind, dir);

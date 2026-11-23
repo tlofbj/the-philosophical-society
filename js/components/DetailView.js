@@ -254,7 +254,7 @@ export class DetailView extends Emitter {
     const reveal = (cls = '') => `class="${cls} reveal" style="--i:${i++}"`;
 
     const meta = [
-      ['Date', ev.longDate],
+      ev.hasDate || !ev.label ? ['Date', ev.longDate] : null,
       ['Time', ev.time],
       ['Place', ev.place],
       ...ev.people,

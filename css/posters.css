@@ -368,6 +368,112 @@
   opacity: 0.8;
 }
 
+/* — The Council: a roster set like a charter — */
+.pd--council {
+  background: #f3eee2;
+  color: #1c1a16;
+}
+
+/* A fine double rule around the sheet. */
+.pd--council::before,
+.pd--council::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.pd--council::before {
+  inset: 3.2cqw;
+  border: 0.35cqw solid #7a1f24;
+}
+
+.pd--council::after {
+  inset: 4.4cqw;
+  border: 0.15cqw solid rgba(122, 31, 36, 0.55);
+}
+
+.pd--council .pd__head {
+  padding-bottom: 3cqw;
+  border-bottom: 0.25cqw solid rgba(28, 26, 22, 0.35);
+  color: #7a1f24;
+}
+
+.pd--council .pd__crest {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3cqw;
+  margin-top: 6cqw;
+}
+
+.pd--council .pd__title {
+  font: 400 15.5cqw/0.9 var(--serif);
+  letter-spacing: -0.015em;
+}
+
+.pd--council .pd__seal {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 17cqw;
+  height: 17cqw;
+  border-radius: 50%;
+  background: #7a1f24;
+  color: #f3eee2;
+  font: 600 3.4cqw/1 var(--display);
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 0 0.6cqw #f3eee2, 0 0 0 0.9cqw #7a1f24;
+  transform: rotate(-10deg);
+  transition: transform 1.2s var(--ease-out);
+}
+
+.card.is-hover .pd--council .pd__seal,
+.flyer .pd--council .pd__seal {
+  transform: rotate(12deg) scale(1.06);
+}
+
+.pd--council .pd__sub {
+  margin-top: 1.5cqw;
+  font: italic 400 6.4cqw/1 var(--serif);
+  color: #7a1f24;
+}
+
+.pd--council .pd__roster {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.4cqw 4cqw;
+  margin: auto 0 3cqw;
+}
+
+/* Roles with several names span the sheet and list them in two columns. */
+.pd--council .pd__roster > div.is-group {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4cqw;
+}
+
+.pd--council .pd__roster > div:first-child {
+  grid-column: 1 / -1;
+}
+
+.pd--council .pd__roster dt {
+  grid-column: 1 / -1;
+  margin-bottom: 1cqw;
+  padding-top: 2cqw;
+  border-top: 0.2cqw solid rgba(28, 26, 22, 0.25);
+  font: 600 2.5cqw/1 var(--display);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7a1f24;
+}
+
+.pd--council .pd__roster dd {
+  margin: 0;
+  font: 400 4.5cqw/1.25 var(--serif);
+  white-space: nowrap;
+}
+
 /* — Upcoming — */
 .pd--next {
   background: #efebe3;
