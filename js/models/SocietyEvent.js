@@ -20,6 +20,7 @@ export class SocietyEvent {
     this.links = raw.links ?? [];
     this.bulletins = raw.bulletins ?? [];
     this.figures = raw.figures ?? null;
+    this.poll = raw.poll ?? null;
     this.poster = raw.poster ?? {};
     /** Poster width / height. Most are 3:4; a square poster gets a square frame. */
     this.ratio = this.poster.ratio ?? 3 / 4;

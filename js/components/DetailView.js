@@ -232,6 +232,23 @@ export class DetailView extends Emitter {
     }
   }
 
+  /** A members' vote as bars that grow in with the reveal; the winning option is marked. */
+  #poll({ heading, note, responses, options }, reveal) {
+    const top = Math.max(...options.map(([, votes]) => votes));
+    return `
+      <section ${reveal('info__section')}>
+        <h3>${esc(heading)}</h3>
+        ${note ? `<p class="poll__note">${esc(note)}</p>` : ''}
+        <ul class="poll">${options.map(([label, votes], i) => `
+          <li class="${votes === top ? 'is-top' : ''}" style="--share:${votes / responses};--n:${i}">
+            <span class="poll__label">${esc(label)}${votes === top ? '<em>Chosen</em>' : ''}</span>
+            <span class="poll__votes">${votes}</span>
+            <i class="poll__bar" aria-hidden="true"></i>
+          </li>`).join('')}
+        </ul>
+      </section>`;
+  }
+
   #render(ev) {
     let i = 0;
     const reveal = (cls = '') => `class="${cls} reveal" style="--i:${i++}"`;
@@ -247,7 +264,7 @@ export class DetailView extends Emitter {
     const sections = ev.sections.map((s) => `
       <section ${reveal('info__section')}>
         <h3>${esc(s.heading)}</h3>
-        <ol>${s.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ol>
+        <ol${s.style === 'alpha' ? ' class="is-alpha"' : ''}>${s.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ol>
       </section>`).join('');
 
     const bulletins = ev.bulletins.length ? `
@@ -275,6 +292,8 @@ export class DetailView extends Emitter {
         </ul>
       </section>` : '';
 
+    const poll = ev.poll ? this.#poll(ev.poll, reveal) : '';
+
     const links = ev.links.length ? `
       <section ${reveal('info__section')}>
         <h3>Readings &amp; links</h3>
@@ -295,6 +314,7 @@ export class DetailView extends Emitter {
       ${figures}
       ${bulletins}
       ${sections}
+      ${poll}
       ${links}`;
 
     this.slot.style.aspectRatio = ev.ratio === 3 / 4 ? '' : String(ev.ratio);

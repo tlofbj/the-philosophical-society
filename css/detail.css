@@ -328,6 +328,79 @@
   color: var(--ink-3);
 }
 
+/* Sections lettered like the handouts they come from: (a), (b), (c). */
+.info__section ol.is-alpha li::before {
+  content: '(' counter(item, lower-alpha) ')';
+}
+
+/* A members' vote */
+.poll__note {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.poll {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poll li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 4px 16px;
+  padding: 12px 0 14px;
+  border-top: 1px solid var(--line);
+}
+
+.poll__label {
+  font-size: 15px;
+  line-height: 1.45;
+  color: #2b2925;
+}
+
+.poll__label em {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px 8px 2px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 600 10px/1.2 var(--display);
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+
+.poll__votes {
+  font: 400 26px/1 var(--serif);
+  font-variant-numeric: tabular-nums;
+}
+
+.poll__bar {
+  grid-column: 1 / -1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--ink-3);
+  opacity: 0.45;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.poll .is-top .poll__bar {
+  background: var(--ink);
+  opacity: 1;
+}
+
+.detail.is-open .is-in .poll__bar {
+  transform: scaleX(var(--share));
+  transition: transform 1.2s var(--ease-out);
+  transition-delay: calc(var(--n) * 70ms + 450ms);
+}
+
 /* The Society in numbers */
 .info__figures {
   display: grid;

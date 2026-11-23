@@ -10,6 +10,8 @@
  * bulletins: announcements as they ran in the ʻIolani bulletin, oldest first.
  *            An optional note labels each one (e.g. "Rescheduled").
  * figures:   big numbers shown in the detail view, as [value, label] pairs.
+ * poll:      a members' vote, { heading, note, responses, options: [[label, votes], …] },
+ *            drawn as bars; the option with the most votes is marked as chosen.
  * media:     images from the meeting itself (slides, diagrams), with alt and caption.
  * quoteBy:   who said the quote, if it isn't the Society's own.
  * tilt:      resting rotation of the card on the wall, in degrees.
@@ -487,6 +489,52 @@ export const EVENTS = [
     ],
     poster: { image: 'assets/posters/fall-break-2026.jpg', alt: 'Poster: It’s October. Fall Break. We will resume in November. Red and pink crayon stars on crumpled white paper. Philosophical Society.' },
     tilt: 1.5,
+  },
+  {
+    id: 'harming-the-innocent',
+    kind: 'November Seminar',
+    title: 'Harming the Innocent',
+    question: 'Can harming innocent persons be justified by beneficial results to others?',
+    date: '2026-11-25',
+    time: 'Meeting Period',
+    place: 'Room ASC-207',
+    people: [['President', 'Tata Li ’27'], ['Guest speaker', 'Mr. David Buchanan']],
+    summary: [
+      'A question as old as time, chosen by the members’ own vote. Mr. Buchanan’s handout sets out three arguments, all equally valid, whose conclusions cannot all be true. Everyone reads them together, then takes time to discuss which argument they find most convincing, and why.',
+      'The exercise is meant to show how moral arguments are driven above all by incommensurable premises: each argument starts from premises its rivals reject, and none of them argues for its own.',
+    ],
+    sections: [
+      {
+        heading: 'Three arguments',
+        style: 'alpha',
+        items: [
+          'What makes an action right is that it produces the greatest happiness, or the least suffering, of all those affected, with each person’s welfare counting equally. An innocent person’s suffering is a real evil, but it is no different in kind from anyone else’s suffering, and it must be weighed against the suffering and happiness of everyone else. Where harming one innocent person, or a few, will spare many others greater harm, the sum of welfare is increased by doing so. Therefore harming innocent persons can be justified by the beneficial results to others, and to refuse to do so when the balance clearly favors it is to value one’s own moral cleanliness above the lives and welfare of others.',
+          'Every human being is a rational agent and as such possesses rights which are not the property of any collective and cannot be overridden by the interests of others. Among these is the right not to be used merely as a means to another’s ends. If I may sacrifice an innocent person for the benefit of others, I am treating that person as a mere instrument, and I cannot will that this should be a universal law, since I cannot will it in my own case, where I might be the one sacrificed. To claim the protection of this right for myself while denying it to another is to contradict myself. Therefore harming innocent persons cannot be justified by the beneficial results to others, however great those results, and anyone who thinks otherwise has failed to understand what it is to be a person.',
+          'Some kinds of acts are by their very nature wrong, and it is never permissible to choose them, whatever good may be hoped to follow. Among these is the direct and intentional killing or injuring of the innocent. But it is one thing to intend an evil and another to foresee it as a side effect of an act which is good in itself and whose good outcome is not achieved by means of the evil. Therefore I may never directly intend harm to the innocent as a means to a good end, but I may sometimes perform an act that I foresee will harm innocent persons, provided that the act is itself good, that the harm is not the means to the good, and that the good is proportionate to the harm. So the answer is neither a simple yes nor a simple no. The harm may be permitted but never willed, and the difference between the two is the difference between the saint and the murderer.',
+        ],
+      },
+    ],
+    poll: {
+      heading: 'Topic vote',
+      note: '13 members voted, and each could pick more than one topic.',
+      responses: 13,
+      options: [
+        ['Is it okay to hurt someone if you have a good reason?', 7],
+        ['Is ignorance bliss?', 4],
+        ['Are we obligated to be impartial?', 4],
+        ['Would you prefer the tyranny of a crowd over the tyranny of a dictator?', 2],
+        ['Is democracy more representative with election by raffle?', 1],
+        ['Is socialism worth it?', 1],
+      ],
+    },
+    bulletins: [
+      { text: 'PHILOSOPHICAL SOCIETY: Calling all philosophers! Our long-awaited November meeting will take place Wednesday, 11/25 during Meeting Period in ASC-207, and we are joined by Mr. Buchanan as our guest speaker! In this meeting, we will be covering a question as old as time: “Can harming innocent persons be justified by beneficial results to others?” If you have any questions, please don’t hesitate to reach out to Tata Li (tl2701@iolani.org) or Arina Shumilova (avs2701@iolani.org). We hope to see you there!' },
+    ],
+    links: [
+      { label: 'Handout: three arguments, edited by Mr. Buchanan', href: 'assets/docs/harming-the-innocent-handout.pdf', note: 'PDF, 1 page' },
+    ],
+    poster: { image: 'assets/posters/harming-the-innocent.jpg', alt: 'Poster: Can harming the innocent be justified if more people end up better off? Four halftone eyes, each shedding a blue tear. Philosophical Society, Wed Nov 25, meeting period at ASC-207, with Mr. Buchanan.' },
+    tilt: -2,
   },
   {
     id: 'next',
